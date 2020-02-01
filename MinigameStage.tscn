@@ -1,14 +1,25 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Sock.gd" type="Script" id=1]
 [ext_resource path="res://Assets/BadSock.jpg" type="Texture" id=2]
 [ext_resource path="res://Scripts/Cursor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/carpet.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/SockPile.gd" type="Script" id=5]
+[ext_resource path="res://Assets/furnature/chairRollee.png" type="Texture" id=6]
+[ext_resource path="res://Assets/furnature/couch.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/Grabbable.gd" type="Script" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 40.7852
 height = 15.8106
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 49.298
+height = 7.599
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 65.1156
+height = 177.202
 
 [node name="MinigameStage" type="Node2D"]
 
@@ -70,11 +81,36 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SockPile/Sock4"]
 shape = SubResource( 1 )
 
+[node name="Furnature" type="Node" parent="."]
+
+[node name="Chair" type="Area2D" parent="Furnature"]
+position = Vector2( 500, 150.1 )
+rotation = 0.722566
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Furnature/Chair"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furnature/Chair"]
+shape = SubResource( 2 )
+
+[node name="Couch" type="Area2D" parent="Furnature"]
+position = Vector2( 291.65, 150.1 )
+rotation = 0.722566
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Furnature/Couch"]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furnature/Couch"]
+shape = SubResource( 3 )
+
 [node name="Carpet" type="TextureRect" parent="."]
 modulate = Color( 0.752941, 1, 0.929412, 1 )
-margin_top = 0.773773
-margin_right = 3627.0
-margin_bottom = 2135.77
+margin_left = -3.96228
+margin_top = 1.47682
+margin_right = 3623.04
+margin_bottom = 2136.48
 texture = ExtResource( 4 )
 stretch_mode = 2
 __meta__ = {
