@@ -15,7 +15,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Repaired"
+config/name="GlobalGameJam2020"
+run/main_scene="res://MinigameStage.tscn"
 config/icon="res://icon.png"
 
 [rendering]

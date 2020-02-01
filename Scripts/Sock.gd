@@ -7,4 +7,4 @@ func drop():
 	var areas = get_overlapping_areas()
 	for area in areas:
 		if area.get( "sock_type" ) == sock_type:
-			print("yay") 
+			$"..".collect_pair(self, area)

@@ -17,12 +17,10 @@ func __grab_topmost_sock():
 					sock = area
 	
 	if sock:
-		print( "you grabbed sock!" )
 		sock_offset = sock.position - position
 		sock.z_index = 1
 
 func __release_sock():
-	print( "there is no sock. only zuul" )
 	if not sock:  return
 	sock.z_index = 0
 	sock.drop()
