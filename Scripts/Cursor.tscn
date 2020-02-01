@@ -14,12 +14,14 @@ script = ExtResource( 2 )
 position = Vector2( -0.212, -40 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
+flip_h = true
 
 [node name="Closed_Hand_Sprite" type="Sprite" parent="."]
 visible = false
 position = Vector2( -0.212, -40 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

@@ -1,5 +1,7 @@
 extends Area2D
 
+export(bool) var can_grab := true
+
 var grabbed_obj : Grabbable
 var grabbed_obj_offset
 
