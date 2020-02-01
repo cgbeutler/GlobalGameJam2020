@@ -10,6 +10,10 @@ func _ready() -> void:
 			starting_sock_count += 1
 	sock_count = starting_sock_count
 
+func claim_sock_id() -> int:
+	sock_count += 1
+	return sock_count - 1
+
 func collect_pair( sock_1, sock_2 ):
 	# TODO: Spawn congrats message or something?
 	sock_1.queue_free()

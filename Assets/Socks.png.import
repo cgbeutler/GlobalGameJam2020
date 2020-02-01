@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/U (1).png-8c097e647647e3c7db0aeca36f3d9371.stex"
+path="res://.import/Socks.png-f0d4a3ab87c4c31d6b070c5a5f5c3ed1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/socks/U (1).png"
-dest_files=[ "res://.import/U (1).png-8c097e647647e3c7db0aeca36f3d9371.stex" ]
+source_file="res://Assets/Socks.png"
+dest_files=[ "res://.import/Socks.png-f0d4a3ab87c4c31d6b070c5a5f5c3ed1.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
