@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BadSock.jpg-aa84a4b9e7cf709b366d337d9616157d.stex"
+path="res://.import/sparkle.png-c4553a484653d07810acdd284e8a5140.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/BadSock.jpg"
-dest_files=[ "res://.import/BadSock.jpg-aa84a4b9e7cf709b366d337d9616157d.stex" ]
+source_file="res://Assets/sparkle.png"
+dest_files=[ "res://.import/sparkle.png-c4553a484653d07810acdd284e8a5140.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
-svg/scale=0.1
+detect_3d=false
+svg/scale=1.0

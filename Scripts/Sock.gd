@@ -1,4 +1,3 @@
-tool
 extends Grabbable
 
 var sock_id := 0

@@ -5,12 +5,15 @@ export(bool) var can_grab := true
 var grabbed_obj : Grabbable
 var grabbed_obj_offset
 
-var open_hand_sprite : Sprite
-var closed_hand_sprite : Sprite
+onready var open_hand_sprite := $Open_Hand_Sprite
+onready var open_hand_animator := $Open_Hand_Sprite/AnimationPlayer
+onready var closed_hand_sprite := $Closed_Hand_Sprite
 
 func _ready():
-	open_hand_sprite = get_node("Open_Hand_Sprite")
-	closed_hand_sprite = get_node("Closed_Hand_Sprite")
+	open_hand_sprite.show()
+	open_hand_animator.get_animation("Sparkle").loop = true
+	open_hand_animator.play("Sparkle")
+	closed_hand_sprite.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func __grab_topmost():
