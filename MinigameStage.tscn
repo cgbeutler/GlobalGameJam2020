@@ -5,13 +5,14 @@
 [ext_resource path="res://Scripts/Cursor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/SockPile.gd" type="Script" id=5]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 40.7852
 height = 15.8106
 
 [node name="MinigameStage" type="Node2D"]
 
 [node name="Cursor" parent="." instance=ExtResource( 3 )]
+z_index = 10
 
 [node name="SockPile" type="Node" parent="."]
 script = ExtResource( 5 )
@@ -27,7 +28,7 @@ scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SockPile/Sock"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Sock2" type="Area2D" parent="SockPile"]
 modulate = Color( 1, 0.498039, 0.498039, 1 )
@@ -40,7 +41,7 @@ scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SockPile/Sock2"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Sock3" type="Area2D" parent="SockPile"]
 position = Vector2( 574.806, 303.28 )
@@ -53,7 +54,7 @@ scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SockPile/Sock3"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Sock4" type="Area2D" parent="SockPile"]
 position = Vector2( 606.939, 446.216 )
@@ -66,4 +67,4 @@ scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SockPile/Sock4"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
