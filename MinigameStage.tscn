@@ -1,13 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Sock.gd" type="Script" id=1]
 [ext_resource path="res://Assets/BadSock.jpg" type="Texture" id=2]
-[ext_resource path="res://Scripts/Cursor.gd" type="Script" id=3]
-[ext_resource path="res://Assets/BadHand.jpg" type="Texture" id=4]
+[ext_resource path="res://Scripts/Cursor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/SockPile.gd" type="Script" id=5]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 8.0
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 40.7852
@@ -15,16 +11,7 @@ height = 15.8106
 
 [node name="MinigameStage" type="Node2D"]
 
-[node name="Cursor" type="Area2D" parent="."]
-script = ExtResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="Cursor"]
-position = Vector2( 26.5678, 24.7883 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor"]
-shape = SubResource( 1 )
+[node name="Cursor" parent="." instance=ExtResource( 3 )]
 
 [node name="SockPile" type="Node" parent="."]
 script = ExtResource( 5 )
