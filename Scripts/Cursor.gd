@@ -1,42 +1,40 @@
 extends Area2D
-var Sock = preload("Sock.gd")
+
+var grabbed_obj : Grabbable
+var grabbed_obj_offset
 
 
-var sock
-var sock_offset
-
-
-func __grab_topmost_sock():
+func __grab_topmost():
 	var areas = get_overlapping_areas()
-	sock = null
+	grabbed_obj = null
 	for area in areas:
-		if area is Sock:
-			if not sock:  sock = area
+		if area is Grabbable:
+			if not grabbed_obj:  grabbed_obj = area
 			else:
-				if area.get_index() > sock.get_index():
-					sock = area
+				if area.get_index() > grabbed_obj.get_index():
+					grabbed_obj = area
 	
-	if sock:
-		sock_offset = sock.position - position
-		sock.z_index = 1
+	if grabbed_obj:
+		grabbed_obj_offset = grabbed_obj.position - position
+		grabbed_obj.z_index = 1
+		grabbed_obj._on_grab()
 
-func __release_sock():
-	if not sock:  return
-	sock.z_index = 0
-	sock.drop()
-	sock = null
+func __release():
+	if not grabbed_obj:  return
+	grabbed_obj.z_index = 0
+	grabbed_obj._on_release()
+	grabbed_obj = null
 
 
 func _process( _delta : float ) -> void:
 	# Move self to the mouse's position
 	position = get_viewport().get_mouse_position()
 	# Move sock relative to cursor
-	if sock:  sock.position = position + sock_offset
+	if grabbed_obj:  grabbed_obj.position = position + grabbed_obj_offset
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if event.pressed:
-			__grab_topmost_sock()
+			__grab_topmost()
 		else:
-			__release_sock()
-
+			__release()
