@@ -1,12 +1,20 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/Sock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/clothes/clothsColor_06.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Cursor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/carpet.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/SockPile.gd" type="Script" id=5]
 [ext_resource path="res://Assets/furnature/chairRollee.png" type="Texture" id=6]
 [ext_resource path="res://Assets/furnature/couch.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/Grabbable.gd" type="Script" id=8]
+[ext_resource path="res://Assets/clothes/clothsColor_03.png" type="Texture" id=9]
+[ext_resource path="res://Assets/clothes/clothsColor_10.png" type="Texture" id=10]
+[ext_resource path="res://Assets/furnature/trash.png" type="Texture" id=11]
+[ext_resource path="res://Assets/clothes/clothsColor_13.png" type="Texture" id=12]
+[ext_resource path="res://Assets/furnature/table.png" type="Texture" id=13]
+[ext_resource path="res://Assets/clothes/clothsColor_17.png" type="Texture" id=14]
+[ext_resource path="res://Assets/furnature/tableCoffee.png" type="Texture" id=15]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 49.298
@@ -15,6 +23,22 @@ height = 7.599
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 65.1156
 height = 177.202
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 21.6559
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 29.205
+height = 30.3759
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 66.003, 112.737 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 51.3419, 49.5741 )
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 23.8672
 
 [node name="MinigameStage" type="Node2D"]
 
@@ -132,36 +156,134 @@ position = Vector2( 895.398, 476.281 )
 [node name="Sock10" parent="SockPile" instance=ExtResource( 1 )]
 position = Vector2( 895.398, 476.281 )
 
-[node name="Furnature" type="Node" parent="."]
+[node name="Stuff" type="Node" parent="."]
 
-[node name="Chair" type="Area2D" parent="Furnature"]
+[node name="Chair" type="Area2D" parent="Stuff"]
 position = Vector2( 500, 150.1 )
 rotation = 0.722566
+z_index = 2
 script = ExtResource( 8 )
 
-[node name="Sprite" type="Sprite" parent="Furnature/Chair"]
+[node name="Sprite" type="Sprite" parent="Stuff/Chair"]
 texture = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Furnature/Chair"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Chair"]
 shape = SubResource( 1 )
 
-[node name="Couch" type="Area2D" parent="Furnature"]
-position = Vector2( 291.65, 150.1 )
-rotation = 0.722566
+[node name="Couch" type="Area2D" parent="Stuff"]
+position = Vector2( 291.65, 250 )
+rotation = -0.287979
+z_index = 2
 script = ExtResource( 8 )
 
-[node name="Sprite" type="Sprite" parent="Furnature/Couch"]
+[node name="Sprite" type="Sprite" parent="Stuff/Couch"]
 texture = ExtResource( 7 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Furnature/Couch"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Couch"]
 shape = SubResource( 2 )
+
+[node name="Green_Shirt" type="Area2D" parent="Stuff"]
+position = Vector2( 200, 0 )
+z_index = 1
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Stuff/Green_Shirt"]
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Green_Shirt"]
+rotation = 1.0472
+shape = SubResource( 3 )
+
+[node name="White_Shirt" type="Area2D" parent="Stuff"]
+position = Vector2( 300, 0 )
+z_index = 1
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Stuff/White_Shirt"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/White_Shirt"]
+rotation = 2.44346
+shape = SubResource( 4 )
+
+[node name="Blue_Pants" type="Area2D" parent="Stuff"]
+position = Vector2( 400, 0 )
+z_index = 1
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Stuff/Blue_Pants"]
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Blue_Pants"]
+position = Vector2( -6.3, 0 )
+rotation = 2.55167
+shape = SubResource( 4 )
+
+[node name="Red_Jacket" type="Area2D" parent="Stuff"]
+position = Vector2( 500, 0 )
+z_index = 1
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Stuff/Red_Jacket"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Red_Jacket"]
+position = Vector2( -4.05539, 4.52948 )
+rotation = 1.23569
+shape = SubResource( 4 )
+
+[node name="Yellow_Pants" type="Area2D" parent="Stuff"]
+position = Vector2( 600, 0 )
+z_index = 1
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Stuff/Yellow_Pants"]
+texture = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Yellow_Pants"]
+position = Vector2( 4.315, 9.50507 )
+rotation = 0.537561
+shape = SubResource( 4 )
+
+[node name="Yellow_Table" type="Area2D" parent="Stuff"]
+position = Vector2( 0, 500 )
+z_index = 2
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Stuff/Yellow_Table"]
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Yellow_Table"]
+shape = SubResource( 5 )
+
+[node name="Green_Table" type="Area2D" parent="Stuff"]
+position = Vector2( 0, 300 )
+z_index = 2
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Stuff/Green_Table"]
+position = Vector2( 0, 1.62903 )
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Green_Table"]
+shape = SubResource( 6 )
+
+[node name="Trash" type="Area2D" parent="Stuff"]
+position = Vector2( 0, 200 )
+z_index = 1
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Stuff/Trash"]
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Trash"]
+shape = SubResource( 7 )
 
 [node name="Carpet" type="TextureRect" parent="."]
 modulate = Color( 0.752941, 1, 0.929412, 1 )
-margin_left = -3.96228
-margin_top = 1.47682
-margin_right = 3623.04
-margin_bottom = 2136.48
+margin_top = 0.0484142
+margin_right = 3703.61
+margin_bottom = 2135.05
 texture = ExtResource( 4 )
 stretch_mode = 2
 __meta__ = {

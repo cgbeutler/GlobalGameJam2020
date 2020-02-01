@@ -8,6 +8,8 @@ var grabbed_obj_offset
 var open_hand_sprite : Sprite
 var closed_hand_sprite : Sprite
 
+var initial_z_index
+
 func _ready():
 	open_hand_sprite = get_node("Open_Hand_Sprite")
 	closed_hand_sprite = get_node("Closed_Hand_Sprite")
@@ -20,17 +22,18 @@ func __grab_topmost():
 		if area is Grabbable:
 			if not grabbed_obj:  grabbed_obj = area
 			else:
-				if area.get_index() > grabbed_obj.get_index():
+				if area.z_index > grabbed_obj.z_index:
 					grabbed_obj = area
 	
 	if grabbed_obj:
 		grabbed_obj_offset = grabbed_obj.position - position
-		grabbed_obj.z_index = 1
+		initial_z_index = grabbed_obj.z_index
+		grabbed_obj.z_index = 9
 		grabbed_obj._on_grab()
 
 func __release():
 	if not grabbed_obj:  return
-	grabbed_obj.z_index = 0
+	grabbed_obj.z_index = initial_z_index
 	grabbed_obj._on_release()
 	grabbed_obj = null
 	
