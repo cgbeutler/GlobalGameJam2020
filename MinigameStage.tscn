@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Sock.gd" type="Script" id=1]
 [ext_resource path="res://Assets/BadSock.jpg" type="Texture" id=2]
 [ext_resource path="res://Scripts/Cursor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/carpet.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/SockPile.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -68,3 +69,14 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SockPile/Sock4"]
 shape = SubResource( 1 )
+
+[node name="Carpet" type="TextureRect" parent="."]
+modulate = Color( 0.752941, 1, 0.929412, 1 )
+margin_top = 0.773773
+margin_right = 3627.0
+margin_bottom = 2135.77
+texture = ExtResource( 4 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
