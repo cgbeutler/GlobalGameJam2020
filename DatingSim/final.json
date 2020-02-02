@@ -1,8 +1,12 @@
 {
+   "choice" : "fdgdfgdfg",
    "response":"Hello there!",
    "trigger" :"talk",
-   "nextChoices":{
-      "choice": "I love you",
-      "trigger": "pair on"
-   }
+   "nextChoices":[
+      {"choice": "I love you",
+         "response":"Hello",
+      "trigger": "pair on",
+      "nextChoices": []
+      }
+   ]
 }

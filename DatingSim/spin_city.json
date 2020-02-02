@@ -26,22 +26,21 @@
                      {
                         "choice":"Thanks! I'll go check out the Whirl Pool",
                         "response":"Whirlpool it is!",
-                        "trigger_scene":"WHIRLPOOL DEST HERE",
+                        "trigger_scene":"res://DatingGameScene3.tscn",
                         "nextChoices":[
                            {
-                              "choice":"thanks! (leave)",                           
-                           "trigger_scene":"WHIRLPOOL DEST HERE"
+                              "choice":"thanks! (leave)",
+                              "trigger_scene":"res://DatingGameScene3.tscn"
                            }
                         ]
                      },
                      {
                         "choice":"I want to get hot",
                         "response":"I saw a nice Wool one at dryer 3.\nMaybe she's the right one for you!",
-                        "trigger":"pair on",
                         "nextChoices":[
                            {
-                              "choice":"thanks! (leave)",                           
-                           "trigger_scene":"WHIRLPOOL DEST HERE"
+                              "choice":"thanks! (leave)",
+                              "trigger_scene":"res://DatingGameScene3.tscn"
                            }
                         ]
                      }
