@@ -18,7 +18,7 @@
    "response": "Where in the world could they be?",
    "nextChoices":[
       {
-         "choice":"[wave]Spin City (Laundromat)[/wave]",
+         "choice":"[rainbow][wave]Spin City (Laundromat)[/wave][/rainbow]",
          "response":"Choice 1 is great!",
          "nextChoices":[
             {
@@ -52,7 +52,7 @@
       ]
       },
          {
-            "choice":"The dark side of the bed",
+            "choice":" [shake level=8] The dark side of the bed [/shake]",
             "response":"base choice from json",
             "nextChoices":[
                {
