@@ -1,0 +1,55 @@
+{   
+   "response":"base choice from json",
+   "nextChoices":[
+      {
+         "choice":"Choice 1",
+         "response":"Choice 1 is great!",
+         "nextChoices":[
+            {
+               "choice":"Choice 1 1",
+               "response":"base choice from json",
+               "nextChoices":[
+                  
+               ]
+            }
+         ]
+      },
+      {
+         "choice":"Choice 2",
+         "response":"base choice from json",
+         "nextChoices":[
+      {
+         "choice":"Choice 2 1",
+         "response":"base choice from json",
+         "nextChoices":[
+            
+         ]
+      },
+         {
+            "choice":"Choice 2 2",
+            "response":"base choice from json",
+            "nextChoices":[
+               
+            ]
+         }
+      ]
+   },
+      {
+         "choice":"Choice 3",
+         "response":"base choice from json",
+         "nextChoices":[
+            {
+               "choice":"choice 3 1",
+               "response":"base choice from json",
+               "nextChoices":[
+                  
+               ]
+            },
+            {
+               "choice" : "Get the FORK OUT OF HERE",
+               "trigger_scene":"res://MinigameStage.tscn"
+            }
+         ]
+      }
+   ]
+}
