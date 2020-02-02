@@ -23,6 +23,7 @@ var __timer := Timer.new()
 func _ready() -> void:
 	__timer.connect("timeout", self, "on_timeout")
 	add_child(__timer)
+	$FasterFaster.hide()
 	
 	start_level()
 
@@ -49,8 +50,7 @@ func on_win():
 func on_timeout():
 	__timer.stop()
 	cursor.can_grab = false
-	#TODO: show game restart prompt
-	pass
+	anim.play("YouLoose")
 
 func _process(delta: float) -> void:
 	if __loaded_level:
