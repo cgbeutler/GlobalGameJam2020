@@ -1,0 +1,343 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/transition/noise.jpg" type="Texture" id=1]
+[ext_resource path="res://Assets/sockModel/sockMan.fbx" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/weird_panels_behavior.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/box_flock_behavior.gd" type="Script" id=4]
+[ext_resource path="res://Assets/sockModel/sock_man_behavior.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Fade_In_Out_Controller.gd" type="Script" id=6]
+
+[sub_resource type="SpatialMaterial" id=1]
+
+[sub_resource type="Shader" id=2]
+code = "shader_type spatial;
+
+uniform vec2 amplitude = vec2(0.1, 0.05);
+uniform vec2 frequency = vec2(3.0, 2.5);
+uniform vec2 time_factor = vec2(2.0, 3.0);
+
+uniform sampler2D uv_offset_texture : hint_black;
+uniform vec2 uv_offset_scale = vec2(0.2, 0.2);
+uniform float uv_offset_time_scale = 0.05;
+uniform float uv_offset_amplitude = 0.2;
+
+uniform sampler2D texturemap : hint_albedo;
+uniform vec2 texture_scale = vec2(8.0, 4.0);
+
+uniform sampler2D normalmap : hint_normal;
+uniform float refraction = 0.05;
+
+float height(vec2 pos, float time) {
+	return (amplitude.x * sin(pos.x * frequency.x + time * time_factor.x)) + (amplitude.y * sin(pos.y * frequency.y + time * time_factor.y));
+}
+
+void vertex() {
+	VERTEX.y += height(VERTEX.xz, TIME); // sample the height at the location of our vertex
+	TANGENT = normalize(vec3(0.0, height(VERTEX.xz + vec2(0.0, 0.2), TIME) - height(VERTEX.xz + vec2(0.0, -0.2), TIME), 0.4));
+	BINORMAL = normalize(vec3(0.4, height(VERTEX.xz + vec2(0.2, 0.0), TIME) - height(VERTEX.xz + vec2(-0.2, 0.0), TIME ), 0.0));
+	NORMAL = cross(TANGENT, BINORMAL);
+}
+
+void fragment() {
+	vec2 base_uv_offset = UV * uv_offset_scale; // Determine the UV that we use to look up our DuDv
+	base_uv_offset += TIME * uv_offset_time_scale;
+	
+	vec2 texture_based_offset = texture(uv_offset_texture, base_uv_offset).rg; // Get our offset
+	texture_based_offset = texture_based_offset * 2.0 - 1.0; // Convert from 0.0 <=> 1.0 to -1.0 <=> 1.0
+	
+	vec2 texture_uv = UV * texture_scale;
+	texture_uv += uv_offset_amplitude * texture_based_offset;
+	ALBEDO = texture(texturemap, texture_uv).rgb;
+	if (ALBEDO.r > 0.9 && ALBEDO.g > 0.9 && ALBEDO.b > 0.9) {
+		ALPHA = 0.9;
+	} else {
+		ALPHA = 0.5;
+	}
+	METALLIC = 0.0;
+	ROUGHNESS = 0.1;
+	NORMALMAP = texture(normalmap, base_uv_offset).rgb;
+	
+	vec3 ref_normal = normalize( mix(NORMAL,TANGENT * NORMALMAP.x + BINORMAL * NORMALMAP.y + NORMAL * NORMALMAP.z,NORMALMAP_DEPTH) );
+	vec2 ref_ofs = SCREEN_UV - ref_normal.xy * refraction;
+	EMISSION += textureLod(SCREEN_TEXTURE,ref_ofs,ROUGHNESS * 8.0).rgb * (1.0 - ALPHA);
+	ALBEDO *= ALPHA;
+	ALPHA = 1.0;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/amplitude = Vector2( 0.1, 0.05 )
+shader_param/frequency = Vector2( 3, 2.5 )
+shader_param/time_factor = Vector2( 2, 3 )
+shader_param/uv_offset_scale = Vector2( 0.2, 0.2 )
+shader_param/uv_offset_time_scale = 0.05
+shader_param/uv_offset_amplitude = 0.2
+shader_param/texture_scale = Vector2( 8, 4 )
+shader_param/refraction = 0.05
+shader_param/normalmap = ExtResource( 1 )
+
+[sub_resource type="PlaneMesh" id=4]
+material = SubResource( 3 )
+subdivide_width = 32
+subdivide_depth = 32
+
+[sub_resource type="QuadMesh" id=5]
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+albedo_color = Color( 0, 0, 0, 1 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18885, 2.08396, 3.8149 )
+visible = false
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.30505 )
+
+[node name="box_flock" type="Spatial" parent="."]
+transform = Transform( 0.999989, 0.00382638, -0.00272532, -0.00382487, 0.999992, 0.000555403, 0.00272743, -0.000544955, 0.999996, 3.52074, -0.838579, -0.217152 )
+
+[node name="CSGBox" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.148154, -2.20126e-11, 2.03727e-10, -1.30314e-11, 0.140646, 0, 0, -5.09317e-11, 0.120921, 6.45254, -0.0475774, 3.18434 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox2" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 6.07004, 0.735035, 3.50519 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox3" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.0945689, 0, 0, 0, 0.106101, 0, 0, 0, 0.124013, 6.23627, 0.19118, 3.71334 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox6" type="CSGBox" parent="box_flock"]
+transform = Transform( -0.00890007, 0, -0.120703, -0.147795, 0.00494281, 0.00725961, 0.00519726, 0.140559, -0.000255287, 7.3375, 0.147282, 3.07662 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox5" type="CSGBox" parent="box_flock"]
+transform = Transform( -0.0120146, 0, -0.199639, -0.199515, 0.00702872, 0.0120072, 0.00701603, 0.199876, -0.000422237, 7.00403, 0.587754, 3.79662 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox4" type="CSGBox" parent="box_flock"]
+transform = Transform( -0.00568105, 0, -0.123789, -0.0943398, 0.00372878, 0.00744524, 0.00331749, 0.106036, -0.000261814, 6.78627, 0.415305, 3.25849 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox12" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.125313, -0.0206696, 0.0620094, 0.0555792, -0.0730758, -0.0928269, 0.0561887, 0.118381, -0.0464746, 7.60774, 0.834039, 3.15784 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox11" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.169166, -0.0293923, 0.102562, 0.0750289, -0.103915, -0.153533, 0.0758518, 0.168339, -0.0768677, 7.34984, 0.0296195, 3.48952 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox10" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.0799893, -0.0155928, 0.063595, 0.035477, -0.0551273, -0.0952005, 0.0358661, 0.0893046, -0.047663, 7.67711, 0.214766, 3.01481 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox9" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.0168574, 0.0713536, -0.103292, 0.0694617, -0.110471, -0.0488569, -0.129771, -0.049862, -0.0395691, 8.2885, 1.13948, 3.64023 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox8" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.0227567, 0.101465, -0.170842, 0.0937696, -0.15709, -0.0808079, -0.175184, -0.0709042, -0.0654461, 8.31093, 0.232805, 3.60778 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox7" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.0107604, 0.053828, -0.105933, 0.0443384, -0.0833373, -0.0501061, -0.0828348, -0.0376151, -0.0405808, 7.87613, 0.653815, 3.58686 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox24" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.148154, 0, 0, 0, 0.140646, 0, 0, 0, 0.120921, 9.17127, 0, 3.1474 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox23" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 8.77716, 0.735035, 3.50519 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox22" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.0945689, 0, 0, 0, 0.106101, 0, 0, 0, 0.124013, 8.94339, 0.19118, 3.71334 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox21" type="CSGBox" parent="box_flock"]
+transform = Transform( -0.00890007, 0, -0.120703, -0.147795, 0.00494281, 0.00725961, 0.00519726, 0.140559, -0.000255287, 10.0446, 0.147282, 3.07662 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox20" type="CSGBox" parent="box_flock"]
+transform = Transform( -0.0120146, 0, -0.199639, -0.199515, 0.00702872, 0.0120072, 0.00701603, 0.199876, -0.000422237, 9.71115, 0.587754, 3.79662 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox19" type="CSGBox" parent="box_flock"]
+transform = Transform( -0.00568105, 0, -0.123789, -0.0943398, 0.00372878, 0.00744524, 0.00331749, 0.106036, -0.000261814, 9.49339, 0.415305, 3.25849 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox18" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.125313, -0.0206696, 0.0620094, 0.0555792, -0.0730758, -0.0928269, 0.0561887, 0.118381, -0.0464746, 10.3149, 0.834039, 3.15784 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox17" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.169166, -0.0293923, 0.102562, 0.0750289, -0.103915, -0.153533, 0.0758518, 0.168339, -0.0768677, 10.057, 0.0296195, 3.48952 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox16" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.0799893, -0.0155928, 0.063595, 0.035477, -0.0551273, -0.0952005, 0.0358661, 0.0893046, -0.047663, 10.3842, 0.214766, 3.01481 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox15" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.0168574, 0.0713536, -0.103292, 0.0694617, -0.110471, -0.0488569, -0.129771, -0.049862, -0.0395691, 10.9956, 1.13948, 3.64023 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox14" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.0227567, 0.101465, -0.170842, 0.0937696, -0.15709, -0.0808079, -0.175184, -0.0709042, -0.0654461, 11.018, 0.232805, 3.60778 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox13" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.0107604, 0.053828, -0.105933, 0.0443384, -0.0833373, -0.0501061, -0.0828348, -0.0376151, -0.0405808, 10.5833, 0.653815, 3.58686 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox36" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.148154, 0, 0, 0, 0.0870384, -0.0949848, 0, 0.110479, 0.0748316, 11.9527, 0.42007, 2.79832 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox35" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.2, 0, 0, 0, 0.123769, -0.157102, 0, 0.157102, 0.123769, 11.5586, 0.593894, 3.59712 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox34" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.0945689, 0, 0, 0, 0.0656604, -0.0974136, 0, 0.0833437, 0.0767451, 11.7248, 0.0938284, 3.29872 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox33" type="CSGBox" parent="box_flock"]
+transform = Transform( -0.00890007, 0, -0.120703, -0.0955451, -0.107352, 0.00469312, -0.112878, 0.0908672, 0.00554453, 12.826, 0.566812, 2.87021 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox32" type="CSGBox" parent="box_flock"]
+transform = Transform( -0.0120146, 0, -0.199639, -0.128981, -0.152656, 0.00776229, -0.15238, 0.129214, 0.00917049, 12.4926, 0.273829, 3.66177 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox31" type="CSGBox" parent="box_flock"]
+transform = Transform( -0.00568105, 0, -0.123789, -0.0609878, -0.0809846, 0.00481313, -0.072052, 0.0685488, 0.0056863, 12.2748, 0.589814, 3.1933 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox30" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.125313, -0.0206696, 0.0620094, -0.00974187, -0.138212, -0.0209393, 0.0784303, 0.0158577, -0.101677, 13.0963, 0.928013, 3.45993 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox29" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.169166, -0.0293923, 0.102562, -0.013151, -0.196539, -0.0346331, 0.105877, 0.0225498, -0.168171, 12.8384, 0.169655, 3.03331 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox28" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.0799893, -0.0155928, 0.063595, -0.00621838, -0.104265, -0.0214748, 0.0500632, 0.0119628, -0.104277, 13.1656, 0.657125, 2.88497 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox27" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.0168574, 0.0713536, -0.103292, 0.144923, -0.0291973, 0.000847017, -0.0257454, -0.117633, -0.0628648, 13.777, 0.73811, 3.99838 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox26" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.0227567, 0.101465, -0.170842, 0.195638, -0.0415188, 0.00140095, -0.034755, -0.167275, -0.103977, 13.7995, 0.202509, 3.26609 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="CSGBox25" type="CSGBox" parent="box_flock"]
+transform = Transform( 0.0107604, 0.053828, -0.105933, 0.0925064, -0.022026, 0.000868676, -0.0164337, -0.0887404, -0.0644723, 13.3647, 0.479476, 3.58386 )
+material = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="weird_panels" type="Spatial" parent="."]
+script = ExtResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="weird_panels"]
+transform = Transform( -0.073652, -1.02223, 0.310259, -0.0533915, -0.0918142, -3.23165, 4.44719, -0.123928, -0.00303826, 2.14544, 0, 3.72087 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="MeshInstance6" type="MeshInstance" parent="weird_panels"]
+transform = Transform( -0.0830644, -0.590626, -2.64356, -1.22885, 0.839961, -1.80588, 4.2742, 0.119832, -0.538713, 2.13746, -0.541299, 3.7528 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="weird_panels"]
+transform = Transform( -0.449776, 0.913064, 0.231099, -0.00846764, -0.366718, 1.36244, 1.39097, 0.266795, 0.0773592, -1.68854, -0.0151296, 2.15638 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="MeshInstance4" type="MeshInstance" parent="weird_panels"]
+transform = Transform( -0.0947947, -0.302066, 1.37284, 0.826227, -0.826916, -0.0800062, 1.2023, 0.514114, 0.156671, -0.130227, 0.771171, 2.57562 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="MeshInstance5" type="MeshInstance" parent="weird_panels"]
+transform = Transform( -0.0926689, -0.309401, 1.37176, 0.815505, -0.829583, -0.0911143, 1.20977, 0.50538, 0.159988, -0.130227, 0.771171, 2.57562 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="weird_panels"]
+transform = Transform( -0.291055, 0.293504, 1.20144, 2.73775, -0.319036, 0.709771, 3.60608, 1.23695, -0.159579, -1.44676, -0.909861, 1.99888 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="MeshInstance10" type="MeshInstance" parent="weird_panels"]
+transform = Transform( -3.56152, -0.722105, 0.682715, 1.15187, -0.815452, 0.489257, 2.56371, 0.729097, 1.12571, -0.215949, 1.39395, 5.0851 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="MeshInstance8" type="MeshInstance" parent="weird_panels"]
+transform = Transform( -0.76038, 0.818993, 0.320461, 1.80605, -0.0336342, 1.33804, 4.09192, 1.02279, -0.282227, -3.41391, -0.909861, 2.20785 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="MeshInstance7" type="MeshInstance" parent="weird_panels"]
+transform = Transform( -1.73008, 0.0180539, -1.35143, -2.14169, 0.433131, 0.347659, 3.60608, 1.23695, -0.159579, 0.0541941, -0.909861, 1.99888 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="MeshInstance9" type="MeshInstance" parent="weird_panels"]
+transform = Transform( 1.57305, 0.942454, -1.0104, -2.14169, 0.433131, 0.347659, 3.6773, 0.801348, 0.911545, -3.47342, -1.6383, 3.6532 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="sockMan" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.335387, 0.02903, -1.47201e-08, -0.02903, 0.335387, -1.47736e-08, 1.31561e-08, 1.59096e-08, 0.336641, 0.349, -1.313, -7.5 )
+script = ExtResource( 5 )
+
+[node name="Fade_In_Out_Plane" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00153804, 0.00292099, 6.99934 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+script = ExtResource( 6 )
