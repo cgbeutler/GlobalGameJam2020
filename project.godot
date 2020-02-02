@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Grabbable",
 "language": "GDScript",
 "path": "res://Scripts/Grabbable.gd"
+}, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://Scripts/Levels/Level.gd"
 } ]
 _global_script_class_icons={
-"Grabbable": ""
+"Grabbable": "",
+"Level": ""
 }
 
 [application]

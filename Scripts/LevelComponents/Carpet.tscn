@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/carpet.png" type="Texture" id=1]
+
+[node name="Carpet" type="TextureRect"]
+modulate = Color( 0.752941, 1, 0.929412, 1 )
+margin_top = 0.0484142
+margin_right = 3703.61
+margin_bottom = 2135.05
+texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

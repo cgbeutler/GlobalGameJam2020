@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Socks.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Grabbable
+
+var sock_id := 0
+
+onready var sock_pile = get_parent()
+
+# Called by cursor when a sock is dropped
+func _on_release():
+	is_grabbed = false
+	var areas = get_overlapping_areas()
+	for area in areas:
+		var other_sock_id = area.get( \"sock_id\" )
+		if other_sock_id == null:  continue
+		if ( sock_id == other_sock_id or
+				sock_id %2 == 0 and sock_id == other_sock_id - 1 or
+				sock_id %2 == 1 and sock_id == other_sock_id + 1 ):
+			sock_pile.collect_pair(self, area)
+
+# Called by cursor when a sock is grabbed
+func _on_grab():
+	is_grabbed = true
+
+func _ready() -> void:
+	sock_id = sock_pile.claim_sock_id()
+	$Sprite.frame = sock_id
+"
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 24.0858
+height = 12.4756
+
+[node name="Sock" type="Area2D"]
+modulate = Color( 1, 0.521569, 0.521569, 1 )
+position = Vector2( 537.328, 259.34 )
+input_pickable = false
+script = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )

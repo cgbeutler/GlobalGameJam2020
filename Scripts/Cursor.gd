@@ -51,9 +51,9 @@ func _input(event: InputEvent) -> void:
 		position =  event.position
 		# Move sock relative to cursor
 		if grabbed_obj:  grabbed_obj.position = position + grabbed_obj_offset
-		
+	
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
-		if event.pressed:
+		if event.pressed and can_grab:
 			hand_close_audio.play()
 			open_hand_sprite.hide()
 			closed_hand_sprite.show()

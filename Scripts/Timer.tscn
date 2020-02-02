@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Timer.gd" type="Script" id=1]
+[ext_resource path="res://Assets/fonts/calzoleria-big.tres" type="DynamicFont" id=2]
+
+[node name="Timer" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1008.0
+margin_bottom = 584.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerLabel" type="Label" parent="Control"]
+anchor_right = 1.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 2 )
+text = "0:00.00"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
