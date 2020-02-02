@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scripts/Sock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/UI.gd" type="Script" id=2]
@@ -16,9 +16,17 @@
 [ext_resource path="res://Assets/clothes/clothsColor_17.png" type="Texture" id=14]
 [ext_resource path="res://Assets/furnature/tableCoffee.png" type="Texture" id=15]
 [ext_resource path="res://Assets/audio/sock_match.wav" type="AudioStream" id=16]
-[ext_resource path="res://Assets/clothes/clothsColor_06.png" type="Texture" id=17]
-[ext_resource path="res://Assets/fonts/calzoleria-big.tres" type="DynamicFont" id=18]
-[ext_resource path="res://Assets/fonts/calzoleria.tres" type="DynamicFont" id=19]
+[ext_resource path="res://Assets/text/text1.png" type="Texture" id=17]
+[ext_resource path="res://Scripts/text_animation.gd" type="Script" id=18]
+[ext_resource path="res://Assets/text/text3.png" type="Texture" id=19]
+[ext_resource path="res://Assets/text/text4.png" type="Texture" id=20]
+[ext_resource path="res://Assets/text/text9.png" type="Texture" id=21]
+[ext_resource path="res://Assets/text/text6.png" type="Texture" id=22]
+[ext_resource path="res://Assets/text/text8.png" type="Texture" id=23]
+[ext_resource path="res://Assets/text/text7.png" type="Texture" id=24]
+[ext_resource path="res://Assets/clothes/clothsColor_06.png" type="Texture" id=25]
+[ext_resource path="res://Assets/fonts/calzoleria-big.tres" type="DynamicFont" id=26]
+[ext_resource path="res://Assets/fonts/calzoleria.tres" type="DynamicFont" id=27]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 49.298
@@ -100,7 +108,7 @@ __meta__ = {
 [node name="Timer" type="Label" parent="UI/Content/Timer"]
 anchor_right = 1.0
 margin_bottom = 52.0
-custom_fonts/font = ExtResource( 18 )
+custom_fonts/font = ExtResource( 26 )
 text = "2:20"
 align = 1
 __meta__ = {
@@ -128,7 +136,7 @@ __meta__ = {
 margin_top = 494.0
 margin_right = 992.0
 margin_bottom = 546.0
-custom_fonts/font = ExtResource( 18 )
+custom_fonts/font = ExtResource( 26 )
 text = "12"
 align = 2
 __meta__ = {
@@ -139,7 +147,7 @@ __meta__ = {
 margin_top = 550.0
 margin_right = 992.0
 margin_bottom = 568.0
-custom_fonts/font = ExtResource( 19 )
+custom_fonts/font = ExtResource( 27 )
 text = "socks left"
 align = 2
 __meta__ = {
@@ -186,6 +194,64 @@ position = Vector2( 926.011, 439.449 )
 [node name="Sock_Match_Audio" type="AudioStreamPlayer" parent="SockPile"]
 stream = ExtResource( 16 )
 
+[node name="Texts" type="Node2D" parent="SockPile"]
+
+[node name="cool" type="Sprite" parent="SockPile/Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 17 )
+script = ExtResource( 18 )
+
+[node name="Yes" type="Sprite" parent="SockPile/Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 19 )
+script = ExtResource( 18 )
+
+[node name="Sock_Master" type="Sprite" parent="SockPile/Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 20 )
+script = ExtResource( 18 )
+
+[node name="Nice" type="Sprite" parent="SockPile/Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 20 )
+script = ExtResource( 18 )
+
+[node name="Good_Work" type="Sprite" parent="SockPile/Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 22 )
+script = ExtResource( 18 )
+
+[node name="Pencil" type="Sprite" parent="SockPile/Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 24 )
+script = ExtResource( 18 )
+
+[node name="Yay" type="Sprite" parent="SockPile/Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 23 )
+script = ExtResource( 18 )
+
+[node name="Congratulation" type="Sprite" parent="SockPile/Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 21 )
+script = ExtResource( 18 )
+
 [node name="Stuff" type="Node" parent="."]
 
 [node name="Chair" type="Area2D" parent="Stuff"]
@@ -230,7 +296,7 @@ z_index = 1
 script = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="Stuff/White_Shirt"]
-texture = ExtResource( 17 )
+texture = ExtResource( 25 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/White_Shirt"]
 rotation = 2.44346
