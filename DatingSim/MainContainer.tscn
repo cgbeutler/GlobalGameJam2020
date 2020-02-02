@@ -56,3 +56,4 @@ size_flags_vertical = 11
 alignment = 2
 script = ExtResource( 2 )
 [connection signal="choiceMade" from="MarginContainer/Control/Panel/ScrollContainer/VBoxContainer" to="MarginContainer/Control/Panel/ScrollContainer/VBoxContainer" method="_on_VBoxContainer_choiceMade"]
+[connection signal="triggered" from="MarginContainer/Control/Panel/ScrollContainer/VBoxContainer" to="." method="_on_VBoxContainer_triggered"]
