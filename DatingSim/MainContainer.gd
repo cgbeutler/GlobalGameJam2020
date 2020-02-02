@@ -11,13 +11,15 @@ func _on_VBoxContainer_triggered(message):
 	print("triggered " + message)
 	if (message == "pair on"):
 		$Button.disabled = false
+	else:
+		emit_signal("trigger", message)
 	pass # Replace with function body.
 
-func _on_Control_trigger(eventName):
-	print("PAIRED")
-	if (eventName == "pair on"):
-		$Button.disabled = false
-	pass # Replace with function body.
+#func _on_Control_trigger(eventName):
+#	print("PAIRED")
+#	if (eventName == "pair on"):
+#		$Button.disabled = false
+#	pass # Replace with function body.
 
 
 # VICTORY!!!

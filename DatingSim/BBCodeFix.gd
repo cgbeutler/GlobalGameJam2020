@@ -17,10 +17,10 @@ func style(type):
 		disabled = true		
 		isInteractive = true
 		if mouseOver:
-			print("mouse over")
+			#print("mouse over")
 			add_stylebox_override("disabled", load("res://DatingSim/style_log_choice_hovered.tres") as StyleBoxFlat)
 		else:
-			print("mouse off")
+			#print("mouse off")
 			add_stylebox_override("disabled", load("res://DatingSim/style_log_choice.tres") as StyleBoxFlat)	
 
 
