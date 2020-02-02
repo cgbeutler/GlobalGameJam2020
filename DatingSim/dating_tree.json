@@ -18,7 +18,7 @@
    "response": "Where in the world could they be?",
    "nextChoices":[
       {
-         "choice":"Spin City (Laundromat)",
+         "choice":"[wave]Spin City (Laundromat)[/wave]",
          "response":"Choice 1 is great!",
          "nextChoices":[
             {

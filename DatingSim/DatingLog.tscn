@@ -1,18 +1,24 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://DatingSim/style_log_choice.tres" type="StyleBox" id=1]
 [ext_resource path="res://DatingSim/style_log.tres" type="StyleBox" id=2]
 [ext_resource path="res://DatingSim/LogItem.gd" type="Script" id=3]
 [ext_resource path="res://DatingSim/style_log_choice_hovered.tres" type="StyleBox" id=4]
 [ext_resource path="res://DatingSim/Cantarell-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://DatingSim/VT323-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://DatingSim/BBCodeFix.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 21
 font_data = ExtResource( 5 )
 
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 6 )
+
 [sub_resource type="DynamicFont" id=3]
-size = 18
-font_data = ExtResource( 5 )
+size = 30
+font_data = ExtResource( 6 )
 
 [node name="Control" type="PanelContainer"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -22,6 +28,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+logText = "Enter text dfsdfsd"
 
 [node name="Button" type="Button" parent="."]
 margin_left = 7.0
@@ -34,6 +41,7 @@ custom_styles/pressed = ExtResource( 2 )
 custom_styles/disabled = ExtResource( 2 )
 custom_styles/normal = ExtResource( 1 )
 custom_fonts/font = SubResource( 1 )
+script = ExtResource( 7 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_left = 7.0
@@ -43,12 +51,13 @@ margin_bottom = 593.0
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="MarginContainer"]
-margin_top = 281.0
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 278.0
 margin_right = 1010.0
-margin_bottom = 305.0
-custom_fonts/font = SubResource( 3 )
+margin_bottom = 308.0
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Sample adventure text! "
+text = "Sample adventure text! dsfsdfasdf"
 align = 1
 valign = 1
 autowrap = true
@@ -56,16 +65,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="rtfLabel" type="RichTextLabel" parent="MarginContainer"]
-visible = false
+[node name="OLabel" type="RichTextLabel" parent="MarginContainer"]
+light_mask = 2
 margin_right = 1010.0
 margin_bottom = 586.0
-scroll_following = true
+rect_min_size = Vector2( 0, 30 )
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[wave][center]WOWSERS![/center][/wave]"
+meta_underlined = false
+text = "WOWSERS!"
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ButtonCover" type="Button" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 593.0
 [connection signal="gui_input" from="." to="." method="_on_Control_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_Control_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_Control_mouse_exited"]
 [connection signal="queueDeletion" from="." to="." method="_on_Control_queueDeletion"]
+[connection signal="styleButton" from="." to="Button" method="_on_Control_styleButton"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="ButtonCover" to="Button" method="_on_ButtonCover_mouse_entered"]
+[connection signal="mouse_exited" from="ButtonCover" to="Button" method="_on_ButtonCover_mouse_exited"]
+[connection signal="pressed" from="ButtonCover" to="." method="_on_ButtonCover_pressed"]
