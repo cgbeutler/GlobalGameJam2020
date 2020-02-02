@@ -9,7 +9,7 @@ script = ExtResource( 3 )
 time_limit = 8.0
 
 [node name="Carpet" parent="." instance=ExtResource( 2 )]
-modulate = Color( 1, 0.890196, 0.65098, 1 )
+modulate = Color( 0.670588, 1, 0.65098, 1 )
 
 [node name="Sock" parent="." instance=ExtResource( 1 )]
 position = Vector2( 184.263, 217.775 )

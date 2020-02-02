@@ -5,9 +5,11 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Grabbable
 
+export(int) var sock_id_override := -1
+
 var sock_id := 0
 
-onready var sock_pile = get_parent()
+onready var level = $\"../\"
 
 # Called by cursor when a sock is dropped
 func _on_release():
@@ -19,14 +21,16 @@ func _on_release():
 		if ( sock_id == other_sock_id or
 				sock_id %2 == 0 and sock_id == other_sock_id - 1 or
 				sock_id %2 == 1 and sock_id == other_sock_id + 1 ):
-			sock_pile.collect_pair(self, area)
+			level.collect_pair(self, area)
 
 # Called by cursor when a sock is grabbed
 func _on_grab():
 	is_grabbed = true
 
 func _ready() -> void:
-	sock_id = sock_pile.claim_sock_id()
+	level.sock_count += 1
+	if sock_id_override >= 0:  sock_id = sock_id_override
+	else:  sock_id = level.sock_count - 1
 	$Sprite.frame = sock_id
 "
 

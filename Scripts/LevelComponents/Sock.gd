@@ -1,5 +1,7 @@
 extends Grabbable
 
+export(int) var sock_id_override := -1
+
 var sock_id := 0
 
 onready var level = $"../"
@@ -21,5 +23,7 @@ func _on_grab():
 	is_grabbed = true
 
 func _ready() -> void:
-	sock_id = level.claim_sock_id()
+	level.sock_count += 1
+	if sock_id_override >= 0:  sock_id = sock_id_override
+	else:  sock_id = level.sock_count - 1
 	$Sprite.frame = sock_id

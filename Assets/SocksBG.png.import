@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/carpet.png-2d91bd85b06f569e4bee0612853604dd.stex"
+path="res://.import/SocksBG.png-c84506a0954d6301f804746f95a6dd24.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/carpet.png"
-dest_files=[ "res://.import/carpet.png-2d91bd85b06f569e4bee0612853604dd.stex" ]
+source_file="res://Assets/SocksBG.png"
+dest_files=[ "res://.import/SocksBG.png-c84506a0954d6301f804746f95a6dd24.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=1
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

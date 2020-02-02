@@ -46,6 +46,7 @@ func on_ready_anim_done():
 	cursor.can_grab = true
 
 func on_win():
+	__timer.paused = true
 	anim.play("YouWin")
 
 func on_you_win_anim_done():

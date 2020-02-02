@@ -3,6 +3,8 @@ extends MarginContainer
 onready var timer_label := $Control/TimerLabel
 
 func set_seconds( secs : float ):
+	if secs > 2:  timer_label.self_modulate = Color.blue
+	else: timer_label.self_modulate = Color.red
 	var minutes = int(floor(secs / 60.0))
 	var minutes_text = "%d:" % minutes if minutes else ""
 	var seconds_text = "%02d." % floor(fmod(secs, 60))
