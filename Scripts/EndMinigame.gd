@@ -8,13 +8,12 @@ onready var sock_count_label = $UI/SockCount
 onready var cursor = $Cursor
 
 onready var levels = [
-	load("res://Scripts/Levels/Level1.tscn"),
-	load("res://Scripts/Levels/Level2.tscn"),
-	load("res://Scripts/Levels/Level3.tscn"),
-	load("res://Scripts/Levels/Level4.tscn"),
-	load("res://Scripts/Levels/Level5.tscn"),
-	load("res://Scripts/Levels/Level6.tscn"),
-	load("res://Scripts/Levels/Level99.tscn")
+	load("res://Scripts/Levels/EndLevel1.tscn"),
+	load("res://Scripts/Levels/EndLevel2.tscn"),
+#	load("res://Scripts/Levels/EndLevel3.tscn"),
+#	load("res://Scripts/Levels/EndLevel4.tscn"),
+#	load("res://Scripts/Levels/EndLevel5.tscn"),
+#	load("res://Scripts/Levels/EndLevel6.tscn")
 ]
 
 var __current_level : int = 0
@@ -39,7 +38,8 @@ func start_level():
 	__timer.start( __loaded_level.time_limit )
 	__timer.paused = true
 	cursor.can_grab = false
-	anim.play("ReadyGo")
+	
+	if __current_level != 0:  anim.play("ReadyGo")
 
 func on_ready_anim_done():
 	__timer.paused = false
@@ -52,27 +52,13 @@ func on_win():
 func on_you_win_anim_done():
 	$YouWin/CPUParticles2D.restart()
 	__current_level += 1
-	if __current_level >= len(levels): __current_level -=1
-	start_level()
+	if __current_level < len(levels):  start_level()
+	else:  get_tree().change_scene("res://MainMenu.tscn")
 
 func on_timeout():
 	__timer.stop()
 	cursor.can_grab = false
-	
-	if __current_level == len(levels) - 1:
-		if __attempt == 0:
-			var music_ctrl = get_node("/root/Background_Music_Ctrl")
-			music_ctrl.Start_Transition_Music()
-			__attempt += 1
-			anim.play("YouLoose")
-		else:
-			__loaded_level.play_ending()
-	else:
-		anim.play("YouLoose")
-var __attempt = 0
-
-func on_ending_anim_done():
-	get_tree().change_scene("res://transition.tscn")
+	anim.play("YouLoose")
 
 func _process(_delta: float) -> void:
 	if __loaded_level:

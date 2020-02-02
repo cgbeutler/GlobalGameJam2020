@@ -13,10 +13,6 @@ onready var texts_container_node = $"../Texts"
 func _ready() -> void:
 	rng.randomize()
 
-func claim_sock_id() -> int:
-	sock_count += 1
-	return sock_count - 1
-
 func collect_pair( sock_1, sock_2 ):
 	sock_1.queue_free()
 	sock_2.queue_free()

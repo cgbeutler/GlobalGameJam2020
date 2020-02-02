@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/LevelComponents/Couch.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/LevelComponents/Carpet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/LevelComponents/Sock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Levels/Level.gd" type="Script" id=6]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 6 )
+time_limit = 10.0
+
+[node name="Carpet" parent="." instance=ExtResource( 4 )]
+modulate = Color( 1, 0.756863, 0.65098, 1 )
+
+[node name="Sock" parent="." instance=ExtResource( 5 )]
+position = Vector2( 263.968, 148.557 )
+
+[node name="Sock2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 907.507, 253.037 )
+
+[node name="Couch" parent="." instance=ExtResource( 1 )]
+position = Vector2( 143.45, 424.8 )
+
+[node name="Couch2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 326.8, 367.8 )
+
+[node name="Couch3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 512.05, 310.8 )
+
+[node name="Couch4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 693.5, 261.4 )
+
+[node name="Couch5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 879.701, 209.15 )
+
+[node name="Couch6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 980.401, 524.55 )
+
+[node name="Couch7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 797.05, 580.6 )
+
+[node name="Couch8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 608.95, 636.65 )
+
+[node name="Couch9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 426.55, 697.45 )
+
+[node name="Couch10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 50.3497, 103.7 )
+
+[node name="Couch11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 232.75, 56.1999 )
+
+[node name="Couch12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 418, 7.74982 )
+
+[node name="Couch13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 608.95, -47.3502 )
+
+[node name="Couch14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 797.05, -101.5 )
+
+[node name="Couch15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1068.75, 162.6 )
+
+[node name="Couch16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 987.051, -142.35 )
