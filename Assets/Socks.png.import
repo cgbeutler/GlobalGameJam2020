@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/text4.png-f92c0ce3665dffff9ca5106fb882982a.stex"
+path="res://.import/Socks.png-f0d4a3ab87c4c31d6b070c5a5f5c3ed1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/text/text4.png"
-dest_files=[ "res://.import/text4.png-f92c0ce3665dffff9ca5106fb882982a.stex" ]
+source_file="res://Assets/Socks.png"
+dest_files=[ "res://.import/Socks.png-f0d4a3ab87c4c31d6b070c5a5f5c3ed1.stex" ]
 
 [params]
 
