@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/LevelComponents/Sock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/LevelComponents/Carpet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Levels/Level.gd" type="Script" id=3]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 3 )
+time_limit = 8.0
+
+[node name="Carpet" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 0.890196, 0.65098, 1 )
+
+[node name="Sock" parent="." instance=ExtResource( 1 )]
+position = Vector2( 184.263, 217.775 )
+
+[node name="Sock2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 645.431, 164.254 )
+
+[node name="Sock3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 388.367, 211.9 )
+
+[node name="Sock4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 675.348, 447.911 )

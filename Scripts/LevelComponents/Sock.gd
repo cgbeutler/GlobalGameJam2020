@@ -2,7 +2,7 @@ extends Grabbable
 
 var sock_id := 0
 
-onready var sock_pile = $"../"
+onready var level = $"../"
 
 # Called by cursor when a sock is dropped
 func _on_release():
@@ -14,12 +14,12 @@ func _on_release():
 		if ( sock_id == other_sock_id or
 				sock_id %2 == 0 and sock_id == other_sock_id - 1 or
 				sock_id %2 == 1 and sock_id == other_sock_id + 1 ):
-			sock_pile.collect_pair(self, area)
+			level.collect_pair(self, area)
 
 # Called by cursor when a sock is grabbed
 func _on_grab():
 	is_grabbed = true
 
 func _ready() -> void:
-	sock_id = sock_pile.claim_sock_id()
+	sock_id = level.claim_sock_id()
 	$Sprite.frame = sock_id

@@ -1,7 +1,6 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=32 format=2]
 
-[ext_resource path="res://Scripts/Sock.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scripts/UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/LevelComponents/Sock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Cursor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/carpet.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/SockPile.gd" type="Script" id=5]
@@ -53,8 +52,6 @@ radius = 23.8672
 [node name="MinigameStage" type="Node2D"]
 
 [node name="SockDrawer" type="Node" parent="."]
-
-[node name="UI" parent="." instance=ExtResource( 2 )]
 
 [node name="Cursor" parent="." instance=ExtResource( 3 )]
 position = Vector2( 485.506, 320.482 )
