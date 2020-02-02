@@ -1,12 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Sock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/UI.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Cursor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/carpet.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/SockPile.gd" type="Script" id=5]
 [ext_resource path="res://Assets/furnature/chairRollee.png" type="Texture" id=6]
 [ext_resource path="res://Assets/furnature/couch.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/Grabbable.gd" type="Script" id=8]
+[ext_resource path="res://Assets/fonts/calzoleria-big.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Assets/fonts/calzoleria.tres" type="DynamicFont" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 49.298
@@ -21,68 +24,31 @@ height = 177.202
 [node name="SockDrawer" type="Node" parent="."]
 
 [node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource( 2 )
 
-[node name="Timer" type="Control" parent="UI"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -20.0
-margin_right = 20.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="UI/Timer"]
-self_modulate = Color( 0, 0, 0, 1 )
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -44.0
-margin_right = 44.0
-margin_bottom = 14.0
-text = "TODO: Timer!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Socks Left" type="Control" parent="UI"]
-anchor_left = 1.0
-anchor_top = 1.0
+[node name="Content" type="MarginContainer" parent="UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -40.0
-margin_top = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UI/Socks Left"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -111.0
-margin_top = -14.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "TODO: Socks Left"
-align = 2
+[node name="ReadyGo" type="Control" parent="UI/Content"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1008.0
+margin_bottom = 584.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ReadyGo" type="Control" parent="UI"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="UI/ReadyGo"]
+[node name="Label" type="Label" parent="UI/Content/ReadyGo"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -97,45 +63,105 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Timer" type="Control" parent="UI/Content"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1008.0
+margin_bottom = 584.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Label" parent="UI/Content/Timer"]
+anchor_right = 1.0
+margin_bottom = 52.0
+custom_fonts/font = ExtResource( 9 )
+text = "2:20"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Socks Left" type="Control" parent="UI/Content"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1008.0
+margin_bottom = 584.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Socks Left" type="VBoxContainer" parent="UI/Content/Socks Left"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SockCount" type="Label" parent="UI/Content/Socks Left/Socks Left"]
+margin_top = 494.0
+margin_right = 992.0
+margin_bottom = 546.0
+custom_fonts/font = ExtResource( 9 )
+text = "12"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SocksLeftLabel" type="Label" parent="UI/Content/Socks Left/Socks Left"]
+margin_top = 550.0
+margin_right = 992.0
+margin_bottom = 568.0
+custom_fonts/font = ExtResource( 10 )
+text = "socks left"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Cursor" parent="." instance=ExtResource( 3 )]
+position = Vector2( 485.506, 320.482 )
 z_index = 10
 
 [node name="SockPile" type="Node" parent="."]
 script = ExtResource( 5 )
 
 [node name="Sock" parent="SockPile" instance=ExtResource( 1 )]
+position = Vector2( 567.941, 222.508 )
 
 [node name="Sock2" parent="SockPile" instance=ExtResource( 1 )]
-position = Vector2( 809.088, 251.176 )
+position = Vector2( 839.701, 214.344 )
 
 [node name="Sock3" parent="SockPile" instance=ExtResource( 1 )]
-position = Vector2( 369.373, 396.969 )
+position = Vector2( 399.986, 360.137 )
 
 [node name="Sock4" parent="SockPile" instance=ExtResource( 1 )]
-position = Vector2( 616.64, 323.489 )
+position = Vector2( 647.253, 286.657 )
 
 [node name="Sock5" parent="SockPile" instance=ExtResource( 1 )]
-position = Vector2( 523.332, 401.635 )
+position = Vector2( 553.945, 364.803 )
 
 [node name="Sock6" parent="SockPile" instance=ExtResource( 1 )]
-position = Vector2( 652.797, 189.359 )
+position = Vector2( 683.41, 152.527 )
 
 [node name="Sock7" parent="SockPile" instance=ExtResource( 1 )]
-position = Vector2( 639.967, 532.266 )
+position = Vector2( 670.58, 495.434 )
 
 [node name="Sock8" parent="SockPile" instance=ExtResource( 1 )]
-position = Vector2( 158.264, 406.3 )
+position = Vector2( 188.877, 369.468 )
 
 [node name="Sock9" parent="SockPile" instance=ExtResource( 1 )]
-position = Vector2( 895.398, 476.281 )
+position = Vector2( 926.011, 439.449 )
 
 [node name="Sock10" parent="SockPile" instance=ExtResource( 1 )]
-position = Vector2( 895.398, 476.281 )
+position = Vector2( 926.011, 439.449 )
 
 [node name="Furnature" type="Node" parent="."]
 
 [node name="Chair" type="Area2D" parent="Furnature"]
-position = Vector2( 500, 150.1 )
+position = Vector2( 373.122, 170.309 )
 rotation = 0.722566
 script = ExtResource( 8 )
 
@@ -146,7 +172,7 @@ texture = ExtResource( 6 )
 shape = SubResource( 1 )
 
 [node name="Couch" type="Area2D" parent="Furnature"]
-position = Vector2( 291.65, 150.1 )
+position = Vector2( 164.772, 170.309 )
 rotation = 0.722566
 script = ExtResource( 8 )
 
@@ -157,11 +183,11 @@ texture = ExtResource( 7 )
 shape = SubResource( 2 )
 
 [node name="Carpet" type="TextureRect" parent="."]
-modulate = Color( 0.752941, 1, 0.929412, 1 )
-margin_left = -3.96228
-margin_top = 1.47682
-margin_right = 3623.04
-margin_bottom = 2136.48
+modulate = Color( 0.368627, 0.109804, 0.0313726, 1 )
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 3626.0
+margin_bottom = 2134.0
 texture = ExtResource( 4 )
 stretch_mode = 2
 __meta__ = {

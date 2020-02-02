@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/cursor/cursorHover.png" type="Texture" id=3]
 [ext_resource path="res://Assets/sparkle.png" type="Texture" id=4]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=3]
 resource_name = "Sparkle"
 length = 0.8
 tracks/0/type = "value"
@@ -28,13 +28,14 @@ radius = 8.0
 script = ExtResource( 2 )
 
 [node name="Open_Hand_Sprite" type="Sprite" parent="."]
+self_modulate = Color( 0.945098, 0.894118, 0.8, 1 )
 position = Vector2( -0.212, -40 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Open_Hand_Sprite"]
-anims/Sparkle = SubResource( 1 )
+anims/Sparkle = SubResource( 3 )
 
 [node name="Sparkle" type="Sprite" parent="Open_Hand_Sprite"]
 position = Vector2( 0.0838366, 19.9533 )
@@ -45,6 +46,7 @@ frame = 7
 
 [node name="Closed_Hand_Sprite" type="Sprite" parent="."]
 visible = false
+self_modulate = Color( 0.945098, 0.894118, 0.8, 1 )
 position = Vector2( -0.212, -40 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )

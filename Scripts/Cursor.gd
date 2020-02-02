@@ -39,13 +39,13 @@ func __release():
 	
 
 
-func _process( _delta : float ) -> void:
-	# Move self to the mouse's position
-	position = get_viewport().get_mouse_position()
-	# Move sock relative to cursor
-	if grabbed_obj:  grabbed_obj.position = position + grabbed_obj_offset
-
 func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		# Move self to the mouse's position
+		position =  event.position
+		# Move sock relative to cursor
+		if grabbed_obj:  grabbed_obj.position = position + grabbed_obj_offset
+		
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if event.pressed:
 			open_hand_sprite.hide()
