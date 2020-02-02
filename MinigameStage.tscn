@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/Sock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/clothes/clothsColor_06.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Assets/furnature/table.png" type="Texture" id=13]
 [ext_resource path="res://Assets/clothes/clothsColor_17.png" type="Texture" id=14]
 [ext_resource path="res://Assets/furnature/tableCoffee.png" type="Texture" id=15]
+[ext_resource path="res://Assets/audio/sock_match.wav" type="AudioStream" id=16]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 49.298
@@ -155,6 +156,9 @@ position = Vector2( 895.398, 476.281 )
 
 [node name="Sock10" parent="SockPile" instance=ExtResource( 1 )]
 position = Vector2( 895.398, 476.281 )
+
+[node name="Sock_Match_Audio" type="AudioStreamPlayer" parent="SockPile"]
+stream = ExtResource( 16 )
 
 [node name="Stuff" type="Node" parent="."]
 

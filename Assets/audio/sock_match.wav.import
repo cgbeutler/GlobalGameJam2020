@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sock_match.wav-66fe7a17c61f85c1fa1a352c2074f80e.sample"
+
+[deps]
+
+source_file="res://Assets/audio/sock_match.wav"
+dest_files=[ "res://.import/sock_match.wav-66fe7a17c61f85c1fa1a352c2074f80e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
