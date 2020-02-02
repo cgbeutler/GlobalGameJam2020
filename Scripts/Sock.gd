@@ -14,6 +14,7 @@ func _on_release():
 		if ( sock_id == other_sock_id or
 				sock_id %2 == 0 and sock_id == other_sock_id - 1 or
 				sock_id %2 == 1 and sock_id == other_sock_id + 1 ):
+			print('hmmm')
 			sock_pile.collect_pair(self, area)
 
 # Called by cursor when a sock is grabbed
