@@ -4,6 +4,7 @@ var tween
 
 onready var minigame_music = $Minigame_Music
 onready var transition_music = $Transition_Music
+onready var dating_music = $Dating_Music
 
 func _ready():
 	tween = Tween.new()
@@ -22,3 +23,9 @@ func Start_Transition_Music():
 	transition_music.play()
 	transition_music.volume_db = -80
 	fade_in(transition_music)
+
+func Start_Dating_Music():
+	fade_out(transition_music)
+	dating_music.play()
+	dating_music.volume_db = -80
+	fade_in(dating_music)
