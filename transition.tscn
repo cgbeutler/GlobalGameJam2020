@@ -2,10 +2,10 @@
 
 [ext_resource path="res://Assets/transition/noise.jpg" type="Texture" id=1]
 [ext_resource path="res://Assets/sockModel/sockMan.fbx" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/weird_panels_behavior.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/box_flock_behavior.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/transition/weird_panels_behavior.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/transition/box_flock_behavior.gd" type="Script" id=4]
 [ext_resource path="res://Assets/sockModel/sock_man_behavior.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/Fade_In_Out_Controller.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/transition/Fade_In_Out_Controller.gd" type="Script" id=6]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.996078, 0.901961, 0.552941, 1 )
@@ -103,7 +103,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.30505 )
 transform = Transform( 0.999989, 0.00382638, -0.00272532, -0.00382487, 0.999992, 0.000555403, 0.00272743, -0.000544955, 0.999996, 3.52074, -0.838579, -0.217152 )
 
 [node name="CSGBox" type="CSGBox" parent="box_flock"]
-transform = Transform( 0.148154, -2.20126e-11, 2.03727e-10, -1.30314e-11, 0.140646, 0, 0, -5.09317e-11, 0.120921, 6.45254, -0.0475774, 3.18434 )
+transform = Transform( 0.148154, -2.19416e-11, 3.20142e-10, -1.30171e-11, 0.140646, 1.45519e-11, 2.91038e-11, -3.63798e-11, 0.120921, 6.45254, -0.0475773, 3.18434 )
 material = SubResource( 1 )
 script = ExtResource( 4 )
 
