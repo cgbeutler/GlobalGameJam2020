@@ -25,13 +25,13 @@ func _ready() -> void:
 	__timer.connect("timeout", self, "on_timeout")
 	add_child(__timer)
 	
+	start_level()
+
+func start_level():
 	$ReadyGo.hide()
 	$FasterFaster.hide()
 	$YouWin.hide()
 	
-	start_level()
-
-func start_level():
 	if __loaded_level:  __loaded_level.queue_free()
 	__loaded_level = levels[__current_level].instance()
 	add_child(__loaded_level)
@@ -69,7 +69,7 @@ func on_timeout():
 var __attempt = 0
 
 func on_ending_anim_done():
-	get_tree().change_scene("res://MainMenu.tscn")
+	get_tree().change_scene("res://transition.tscn")
 
 func _process(_delta: float) -> void:
 	if __loaded_level:
