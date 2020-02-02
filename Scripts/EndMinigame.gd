@@ -10,7 +10,7 @@ onready var cursor = $Cursor
 onready var levels = [
 	load("res://Scripts/Levels/EndLevel1.tscn"),
 	load("res://Scripts/Levels/EndLevel2.tscn"),
-#	load("res://Scripts/Levels/EndLevel3.tscn"),
+	load("res://Scripts/Levels/EndLevel3.tscn")
 #	load("res://Scripts/Levels/EndLevel4.tscn"),
 #	load("res://Scripts/Levels/EndLevel5.tscn"),
 #	load("res://Scripts/Levels/EndLevel6.tscn")
