@@ -36,6 +36,8 @@ func _ready():
 	$MarginContainer.set("custom_constants/margin_top", margin_value)
 	$MarginContainer/Label.text = logText
 	$MarginContainer/OLabel.bbcode_text = "[center]" + logText + "[/center]"
+	#$MarginContainer/OLabel.rect_min_size = Vector2()
+	
 	emit_signal("styleButton",type)
 	
 
