@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/sockModel/button/albedoyellow.png" type="Texture" id=1]
+[ext_resource path="res://Assets/sockModel2/skin1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/sockModel/button/albedopink.png" type="Texture" id=3]
+[ext_resource path="res://sockModel3/sockALL.fbx" type="PackedScene" id=4]
+[ext_resource path="res://Assets/sockModel/mainSock/normal.png" type="Texture" id=5]
+[ext_resource path="res://Assets/sockModel/mainSock/roughness.png" type="Texture" id=6]
+[ext_resource path="res://Assets/sockModel/mainSock/ao.png" type="Texture" id=7]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.996078, 0.556863, 1, 1 )
+albedo_texture = ExtResource( 2 )
+roughness_texture = ExtResource( 6 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 5 )
+ao_enabled = true
+ao_light_affect = 0.0
+ao_texture = ExtResource( 7 )
+ao_on_uv2 = false
+ao_texture_channel = 0
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 3 )
+
+[node name="sockALL" instance=ExtResource( 4 )]
+
+[node name="BUgreen003" parent="Armature" index="1"]
+material/0 = SubResource( 1 )
+
+[node name="hatMario" parent="Armature" index="2"]
+visible = false
+
+[node name="Mball036" parent="Armature" index="3"]
+material/0 = SubResource( 2 )
+
+[node name="UHat" parent="Armature" index="4"]
+visible = false
+
+[node name="BUgreen" parent="Armature" index="5"]
+visible = false
+
+[node name="BUgreen001" parent="Armature" index="6"]
+visible = false
+
+[node name="BUFancy002" parent="Armature" index="7"]
+visible = false
+
+[node name="BUgreen002" parent="Armature" index="8"]
+material/0 = SubResource( 3 )
+
+[node name="BUFancy001" parent="Armature" index="9"]
+visible = false

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/albedopink.png-30561bda60fdd6cf9e1c114c0230f2b6.s3tc.stex"
-path.etc2="res://.import/albedopink.png-30561bda60fdd6cf9e1c114c0230f2b6.etc2.stex"
+path.s3tc="res://.import/laundromat.png-8aaa03740859db94269cf793265fab3b.s3tc.stex"
+path.etc2="res://.import/laundromat.png-8aaa03740859db94269cf793265fab3b.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/sockModel/button/albedopink.png"
-dest_files=[ "res://.import/albedopink.png-30561bda60fdd6cf9e1c114c0230f2b6.s3tc.stex", "res://.import/albedopink.png-30561bda60fdd6cf9e1c114c0230f2b6.etc2.stex" ]
+source_file="res://DatingSim/laundromat.png"
+dest_files=[ "res://.import/laundromat.png-8aaa03740859db94269cf793265fab3b.s3tc.stex", "res://.import/laundromat.png-8aaa03740859db94269cf793265fab3b.etc2.stex" ]
 
 [params]
 
