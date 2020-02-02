@@ -20,6 +20,7 @@ func fadeOut(time):
 	var mat = get_surface_material(0)
 	if mat.albedo_color.a >= 1:
 		fade_out = false
+		get_tree().change_scene("res://Transition2.tscn")
 	else:
 		mat.albedo_color.a += 0.01
 		set_surface_material(0, mat)
