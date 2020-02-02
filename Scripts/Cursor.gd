@@ -19,9 +19,12 @@ onready var hand_open_audio = $Hand_Open_Audio
 
 var initial_z_index
 
-func _ready():
+func _enter_tree() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	
+func _exit_tree() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _ready():
 	open_hand_sprite.show()
 	open_hand_animator.get_animation("Sparkle").loop = true
 	open_hand_animator.play("Sparkle")

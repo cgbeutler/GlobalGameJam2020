@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/main_menu/label_new_game.png" type="Texture" id=3]
 [ext_resource path="res://Assets/SocksBG.png" type="Texture" id=4]
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Control
 
 onready var logo := $Logo
@@ -33,13 +33,13 @@ func _on_Button_pressed() -> void:
 	get_tree().change_scene(\"res://Minigame.tscn\")
 "
 
-[sub_resource type="StyleBoxEmpty" id=1]
+[sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
-script = SubResource( 2 )
+script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -71,7 +71,7 @@ margin_right = 846.52
 margin_bottom = 525.998
 rect_pivot_offset = Vector2( -187.218, -109.813 )
 rect_clip_content = true
-custom_styles/focus = SubResource( 1 )
+custom_styles/focus = SubResource( 2 )
 shortcut_in_tooltip = false
 icon = ExtResource( 3 )
 flat = true
