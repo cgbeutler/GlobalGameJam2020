@@ -1,0 +1,352 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://Scripts/Cursor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Timer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Minigame.gd" type="Script" id=3]
+[ext_resource path="res://Assets/text/ReadyGo.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/SockCount.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/text/text4.png" type="Texture" id=6]
+[ext_resource path="res://Assets/text/text7.png" type="Texture" id=7]
+[ext_resource path="res://Assets/text/text9.png" type="Texture" id=8]
+[ext_resource path="res://Assets/text/text6.png" type="Texture" id=9]
+[ext_resource path="res://Assets/text/text3.png" type="Texture" id=10]
+[ext_resource path="res://Assets/audio/sock_match.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/text/text8.png" type="Texture" id=12]
+[ext_resource path="res://Assets/text/text1.png" type="Texture" id=13]
+[ext_resource path="res://Scripts/text_animation.gd" type="Script" id=14]
+[ext_resource path="res://Assets/text/FasterFaster.png" type="Texture" id=15]
+[ext_resource path="res://Assets/text/text10.png" type="Texture" id=16]
+[ext_resource path="res://Assets/text/text11.png" type="Texture" id=17]
+[ext_resource path="res://Assets/text/text12.png" type="Texture" id=18]
+[ext_resource path="res://Assets/text/text13.png" type="Texture" id=19]
+[ext_resource path="res://Assets/text/text14.png" type="Texture" id=20]
+[ext_resource path="res://Assets/text/text16.png" type="Texture" id=21]
+[ext_resource path="res://Assets/text/text15.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Socks.png" type="Texture" id=23]
+[ext_resource path="res://Assets/text/WellDone.png" type="Texture" id=24]
+
+[sub_resource type="Animation" id=1]
+resource_name = "ReadyGo"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ReadyGo:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ReadyGo:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 1, 0, 1, 0, 1, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ReadyGo:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "on_ready_anim_done"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "YouLoose"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("FasterFaster:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FasterFaster:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 1, 0, 1, 0, 1 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_level"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "YouWin"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("YouWin:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YouWin:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("YouWin/CPUParticles2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "restart"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "on_you_win_anim_done"
+} ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=4]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 8
+particles_anim_loop = false
+
+[node name="Minigame" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ReadyGo = SubResource( 1 )
+anims/YouLoose = SubResource( 2 )
+anims/YouWin = SubResource( 3 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Timer" parent="UI" instance=ExtResource( 2 )]
+
+[node name="SockCount" parent="UI" instance=ExtResource( 5 )]
+
+[node name="Cursor" parent="." instance=ExtResource( 1 )]
+
+[node name="Sock_Match_Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="Texts" type="Node2D" parent="."]
+
+[node name="cool" type="Sprite" parent="Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 13 )
+script = ExtResource( 14 )
+
+[node name="Yes" type="Sprite" parent="Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 10 )
+script = ExtResource( 14 )
+
+[node name="Sock_Master" type="Sprite" parent="Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 6 )
+script = ExtResource( 14 )
+
+[node name="Nice" type="Sprite" parent="Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 6 )
+script = ExtResource( 14 )
+
+[node name="Good_Work" type="Sprite" parent="Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 9 )
+script = ExtResource( 14 )
+
+[node name="Pencil" type="Sprite" parent="Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 7 )
+script = ExtResource( 14 )
+
+[node name="Yay" type="Sprite" parent="Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 12 )
+script = ExtResource( 14 )
+
+[node name="Congratulation" type="Sprite" parent="Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 8 )
+script = ExtResource( 14 )
+
+[node name="Star" type="Sprite" parent="Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 16 )
+script = ExtResource( 14 )
+
+[node name="Cheese" type="Sprite" parent="Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 17 )
+script = ExtResource( 14 )
+
+[node name="Shiba" type="Sprite" parent="Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 18 )
+script = ExtResource( 14 )
+
+[node name="Combo" type="Sprite" parent="Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 19 )
+script = ExtResource( 14 )
+
+[node name="Poopie" type="Sprite" parent="Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 20 )
+script = ExtResource( 14 )
+
+[node name="Wow" type="Sprite" parent="Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 22 )
+script = ExtResource( 14 )
+
+[node name="SuperStar" type="Sprite" parent="Texts"]
+visible = false
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 21 )
+script = ExtResource( 14 )
+
+[node name="ReadyGo" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+scale = Vector2( 2, 2 )
+z_index = 11
+texture = ExtResource( 4 )
+hframes = 3
+frame = 1
+
+[node name="FasterFaster" type="Sprite" parent="."]
+visible = false
+position = Vector2( 512, 300 )
+scale = Vector2( 2, 2 )
+z_index = 11
+texture = ExtResource( 15 )
+hframes = 2
+
+[node name="YouWin" type="Sprite" parent="."]
+visible = false
+position = Vector2( 512, 300 )
+scale = Vector2( 2, 2 )
+z_index = 11
+texture = ExtResource( 24 )
+hframes = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="YouWin"]
+material = SubResource( 4 )
+z_index = -1
+emitting = false
+amount = 50
+lifetime = 3.0
+one_shot = true
+texture = ExtResource( 23 )
+emission_shape = 1
+emission_sphere_radius = 21.57
+direction = Vector2( 0, -1 )
+initial_velocity = 200.0
+initial_velocity_random = 1.0
+angular_velocity = 170.0
+angular_velocity_random = 1.0
+anim_offset = 1.0
+anim_offset_random = 1.0

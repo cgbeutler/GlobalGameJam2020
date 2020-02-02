@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/LevelComponents/Sock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/LevelComponents/Carpet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Levels/Level.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/LevelComponents/Couch.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/LevelComponents/Green_Shirt.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/LevelComponents/Chair.tscn" type="PackedScene" id=6]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 3 )
+time_limit = 8.0
+
+[node name="Carpet" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.980392, 0.65098, 1, 1 )
+
+[node name="Sock" parent="." instance=ExtResource( 1 )]
+position = Vector2( 670.69, 389.521 )
+
+[node name="Sock2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 296.4, 417.994 )
+
+[node name="Sock3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 793.908, 102.204 )
+
+[node name="Sock4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 926.872, 227.412 )
+
+[node name="Sock5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 147.923, 417.994 )
+
+[node name="Sock6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 408.312, 124.365 )
+
+[node name="Couch" parent="." instance=ExtResource( 4 )]
+position = Vector2( 903.285, 442.798 )
+
+[node name="Chair" parent="." instance=ExtResource( 6 )]
+position = Vector2( 403.601, 121.291 )
+
+[node name="Green_Shirt" parent="." instance=ExtResource( 5 )]
+position = Vector2( 71.468, 182.826 )

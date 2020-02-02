@@ -14,12 +14,12 @@ onready var hand_open_audio = $Hand_Open_Audio
 var initial_z_index
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 	open_hand_sprite.show()
 	open_hand_animator.get_animation("Sparkle").loop = true
 	open_hand_animator.play("Sparkle")
 	closed_hand_sprite.hide()
-	
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func __grab_topmost():
 	var areas = get_overlapping_areas()
@@ -51,9 +51,9 @@ func _input(event: InputEvent) -> void:
 		position =  event.position
 		# Move sock relative to cursor
 		if grabbed_obj:  grabbed_obj.position = position + grabbed_obj_offset
-		
+	
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
-		if event.pressed:
+		if event.pressed and can_grab:
 			hand_close_audio.play()
 			open_hand_sprite.hide()
 			closed_hand_sprite.show()
