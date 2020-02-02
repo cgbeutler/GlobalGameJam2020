@@ -27,6 +27,8 @@ func collect_pair( sock_1, sock_2 ):
 	var text_sprite = texts_container_node.get_child(rand_text_idx)
 	var avg_position = (sock_1.position + sock_2.position) / 2
 	text_sprite.position = avg_position
+	text_sprite.self_modulate = __colors[rng.randi_range(0, len(__colors)-1)]
 	text_sprite.show()
 	
 	sock_match_audio.play()
+var __colors = [Color.white, Color.red, Color.cyan, Color.blue, Color.green, Color.purple, Color.orange]

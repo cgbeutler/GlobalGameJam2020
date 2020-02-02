@@ -14,12 +14,12 @@ onready var hand_open_audio = $Hand_Open_Audio
 var initial_z_index
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 	open_hand_sprite.show()
 	open_hand_animator.get_animation("Sparkle").loop = true
 	open_hand_animator.play("Sparkle")
 	closed_hand_sprite.hide()
-	
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func __grab_topmost():
 	var areas = get_overlapping_areas()

@@ -13,7 +13,8 @@ onready var levels = [
 	load("res://Scripts/Levels/Level3.tscn"),
 	load("res://Scripts/Levels/Level4.tscn"),
 	load("res://Scripts/Levels/Level5.tscn"),
-	load("res://Scripts/Levels/Level6.tscn")
+	load("res://Scripts/Levels/Level6.tscn"),
+	load("res://Scripts/Levels/Level99.tscn")
 ]
 
 var __current_level : int = 0
@@ -23,7 +24,10 @@ var __timer := Timer.new()
 func _ready() -> void:
 	__timer.connect("timeout", self, "on_timeout")
 	add_child(__timer)
+	
+	$ReadyGo.hide()
 	$FasterFaster.hide()
+	$YouWin.hide()
 	
 	start_level()
 
@@ -42,7 +46,10 @@ func on_ready_anim_done():
 	cursor.can_grab = true
 
 func on_win():
-	#TODO: show win message and button to start next level
+	anim.play("YouWin")
+
+func on_you_win_anim_done():
+	$YouWin/CPUParticles2D.restart()
 	__current_level += 1
 	if __current_level >= len(levels): __current_level -=1
 	start_level()
@@ -50,9 +57,21 @@ func on_win():
 func on_timeout():
 	__timer.stop()
 	cursor.can_grab = false
-	anim.play("YouLoose")
+	
+	if __current_level == len(levels) - 1:
+		if __attempt == 0:
+			__attempt += 1
+			anim.play("YouLoose")
+		else:
+			__loaded_level.play_ending()
+	else:
+		anim.play("YouLoose")
+var __attempt = 0
 
-func _process(delta: float) -> void:
+func on_ending_anim_done():
+	get_tree().change_scene("res://MainMenu.tscn")
+
+func _process(_delta: float) -> void:
 	if __loaded_level:
 		# Update Timer
 		timer_label.set_seconds( __timer.time_left )
