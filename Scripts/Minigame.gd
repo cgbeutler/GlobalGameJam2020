@@ -60,6 +60,8 @@ func on_timeout():
 	
 	if __current_level == len(levels) - 1:
 		if __attempt == 0:
+			var music_ctrl = get_node("/root/Background_Music_Ctrl")
+			music_ctrl.Start_Transition_Music()
 			__attempt += 1
 			anim.play("YouLoose")
 		else:

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Aliens-Monsters-30_01.ogg-fbab6931fafeb14adbde35978d13824f.oggstr"
+
+[deps]
+
+source_file="res://Assets/audio/Aliens-Monsters-30_01.ogg"
+dest_files=[ "res://.import/Aliens-Monsters-30_01.ogg-fbab6931fafeb14adbde35978d13824f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

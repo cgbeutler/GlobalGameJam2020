@@ -32,7 +32,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Background_Music="*res://Background_Music.tscn"
+Background_Music_Ctrl="*res://BackgroundMusicCtrl.tscn"
 
 [display]
 
