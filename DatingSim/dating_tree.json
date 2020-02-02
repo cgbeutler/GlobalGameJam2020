@@ -1,8 +1,24 @@
 {   
-   "response":"base choice from json",
+   "response":"All alone.",
+   "nextChoices":[
+   {
+   "choice": "[next]",
+   "response": "A sock without a pair.",
+   "nextChoices":[
+   {
+   "choice": "[next]",
+   "response": "A sole-mate without a soul mate.",
+   "nextChoices":[
+   {
+   "choice": "[next]",
+   "response": "You mustn't stop till you find your perfect match",
+   "nextChoices":[
+   {
+   "choice": "[next]",
+   "response": "Where in the world could they be?",
    "nextChoices":[
       {
-         "choice":"Choice 1",
+         "choice":"Spin City (Laundromat)",
          "response":"Choice 1 is great!",
          "nextChoices":[
             {
@@ -15,41 +31,45 @@
          ]
       },
       {
-         "choice":"Choice 2",
+         "choice":"The dog's house",
          "response":"base choice from json",
          "nextChoices":[
-      {
-         "choice":"Choice 2 1",
-         "response":"base choice from json",
-         "nextChoices":[
-            
-         ]
-      },
+         {
+            "choice":"Choice 2 1",
+            "response":"base choice from json",
+            "nextChoices":[
+               
+            ]
+         },
          {
             "choice":"Choice 2 2",
+            "trigger":"The fancy pants dance!",
             "response":"base choice from json",
             "nextChoices":[
                
             ]
          }
       ]
-   },
-      {
-         "choice":"Choice 3",
-         "response":"base choice from json",
-         "nextChoices":[
-            {
-               "choice":"choice 3 1",
-               "response":"base choice from json",
-               "nextChoices":[
-                  
-               ]
-            },
-            {
-               "choice" : "Get the FORK OUT OF HERE",
-               "trigger_scene":"res://MinigameStage.tscn"
-            }
-         ]
-      }
-   ]
-}
+      },
+         {
+            "choice":"The dark side of the bed",
+            "response":"base choice from json",
+            "nextChoices":[
+               {
+                  "choice":"choice 3 1",
+                  "response":"base choice from json",
+                  "nextChoices":[
+                     
+                  ]
+               },
+               {
+                  "choice" : "Get the FORK OUT OF HERE",
+                  "trigger_scene":"res://MinigameStage.tscn"
+               }
+            ]
+         }
+]}
+]}
+]}
+]}
+]}

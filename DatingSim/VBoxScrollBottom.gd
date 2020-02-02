@@ -2,6 +2,8 @@ extends VBoxContainer
 
 signal choiceMade(caller)
 
+signal triggered(message)
+
 var activeChoices: Array
 
 enum {said,will_say, they_said}
@@ -11,11 +13,12 @@ var parent : ScrollContainer
 
 var json
 var logBase = preload("res://DatingSim/DatingLog.tscn")
+var sceneroot
 
 func getJSON():
 	var file = File.new()
 	
-	file.open($"../../../../..".json_file, file.READ)
+	file.open(sceneroot.json_file, file.READ)
 	var content = file.get_as_text()
 	json = JSON.parse(content)
 	
@@ -23,18 +26,25 @@ func getJSON():
 	
 	json = json.result
 	
-func loadChoice():
+func loadChoice():	
 	if json.has("trigger_scene"):
 		print ("triggering new Scene..")
 		get_tree().change_scene(json["trigger_scene"])
 		return
+		
+	if json.has("trigger"):
+		self.emit_signal("triggered", json["trigger"])
+		
+	
 	if json.has("choice"):
-		var curLog = logBase.instance()
-		print (json["choice"])
-		curLog.logText = json["choice"]
-		curLog.type = said
-		curLog.style()
-		self.add_child(curLog)
+		var text = json["choice"]
+		print (text)
+		if not text == "[next]":
+			var curLog = logBase.instance()		
+			curLog.logText = text
+			curLog.type = said
+			curLog.style()
+			self.add_child(curLog)
 	
 	var dateResponse = logBase.instance()
 	print (json["response"])
@@ -57,6 +67,7 @@ func loadChoice():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	sceneroot = $"../../../../.."
 	getJSON()	
 	loadChoice()
 	parent = $".."
@@ -87,3 +98,6 @@ func _on_VBoxContainer_choiceMade(choiceText):
 	loadChoice()
 	#loadChoice(false)
 	pass # Replace with function body.
+
+
+

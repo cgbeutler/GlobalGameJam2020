@@ -1,0 +1,24 @@
+{
+   "response":"Welcome to Spin City! We've got dry cleaning, wet cleaning, air dry, spin-cycle,  lint rolling and more!",
+   "nextChoices":[
+   {
+   "choice": "Umm... thanks. I'm actually here to find the ying to my yang.",
+   "response": "You lost them? How tragic! Have you tried retracing your steps?",
+   "nextChoices":[
+   {
+      "choice": "Yes",
+      "response": "You lost them? How tragic! Have you tried retracing your steps?",
+      "nextChoices":[
+      {
+         
+      }]
+   },{
+      "choice": "I'm afraid I don't remember?",
+      "response": "Sounds like you have few threads loose.",
+      "nextChoices":[
+      {
+         
+      }
+   ]}
+   ]}
+]}
