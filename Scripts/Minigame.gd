@@ -9,7 +9,11 @@ onready var cursor = $Cursor
 
 onready var levels = [
 	load("res://Scripts/Levels/Level1.tscn"),
-	load("res://Scripts/Levels/Level2.tscn")
+	load("res://Scripts/Levels/Level2.tscn"),
+	load("res://Scripts/Levels/Level3.tscn"),
+	load("res://Scripts/Levels/Level4.tscn"),
+	load("res://Scripts/Levels/Level5.tscn"),
+	load("res://Scripts/Levels/Level6.tscn")
 ]
 
 var __current_level : int = 0
@@ -43,6 +47,7 @@ func on_win():
 	start_level()
 
 func on_timeout():
+	__timer.stop()
 	cursor.can_grab = false
 	#TODO: show game restart prompt
 	pass

@@ -24,8 +24,9 @@ func collect_pair( sock_1, sock_2 ):
 
 	var n_texts = texts_container_node.get_child_count();
 	var rand_text_idx = rng.randi_range(0, n_texts - 1)
-	print(rand_text_idx)
 	var text_sprite = texts_container_node.get_child(rand_text_idx)
 	var avg_position = (sock_1.position + sock_2.position) / 2
 	text_sprite.position = avg_position
 	text_sprite.show()
+	
+	sock_match_audio.play()
