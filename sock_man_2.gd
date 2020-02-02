@@ -47,4 +47,10 @@ func play_turn():
 	play_animation("Armature|turn")
 
 func _on_Control_trigger(eventName):
-	print(eventName)
+	print("anim trigger "+ eventName)
+	if eventName == "sad":
+		play_pissed1()
+	else: if eventName == "shock":
+		play_splosion()
+	else: if eventName == "sexy":
+		play_turn()

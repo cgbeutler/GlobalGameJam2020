@@ -4,14 +4,17 @@
    {
    "choice": "[next]",
    "response": "A sock without a pair.",
+   "trigger":"sad",
    "nextChoices":[
    {
    "choice": "[next]",
    "response": "A sole-mate without a soul mate.",
+   "trigger": "shock",
    "nextChoices":[
    {
    "choice": "[next]",
    "response": "You mustn't stop till you find your perfect match",
+   "trigger":"sexy",
    "nextChoices":[
    {
    "choice": "[next]",
@@ -19,7 +22,8 @@
    "nextChoices":[
       {
          "choice":"[rainbow][wave]Spin City (Laundromat)[/wave][/rainbow]",
-         "response":"Choice 1 is great!",
+         "response":"Spin City is great!",
+         "trigger_scene":"res://DatingGameScene2.tscn",
          "nextChoices":[
             {
                "choice":"Choice 1 1",

@@ -23,5 +23,5 @@ func _on_Control_trigger(eventName):
 # VICTORY!!!
 func _on_Button_pressed():
 	print("WINNNN!")
-	get_tree().change_scene("res://YouWin.tscn")
+	get_tree().change_scene("res://EndMinigame.tscn")
 	pass # Replace with function body.
