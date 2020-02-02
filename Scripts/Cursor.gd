@@ -1,6 +1,12 @@
 extends Area2D
 
-export(bool) var can_grab := true
+export(bool) var can_grab := true setget set_can_grab, get_can_grab
+func set_can_grab( value ):
+	can_grab = value
+	if not grabbed_obj:  return
+	grabbed_obj.z_index = initial_z_index
+	grabbed_obj = null
+func get_can_grab():  return can_grab
 
 var grabbed_obj : Grabbable
 var grabbed_obj_offset
