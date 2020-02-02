@@ -1,27 +1,38 @@
 {
    "response":"Welcome to [wave]Spin City![/wave] We've got: \ndry cleaning,\nwet cleaning,\nair dry,\nspin-cycle,\n lint rolling \nand more!",
+   "trigger":"talk",
    "nextChoices":[
    {
    "choice": "Umm... thanks. I'm actually here to find the ying to my yang.",
    "response": "You lost them? How tragic! Have you tried retracing your steps?",
+   "trigger":"talk",
    "nextChoices":[
    {
       "choice": "Yes",
       "response": "You lost them? How tragic!\nHave you tried retracing your steps?",
-      "nextChoices":[      
+   "trigger":"talk",
+   "nextChoices":[      
          { 
             "choice":"I was hoping there were socks here?",
             "response":"Oh yes! Between you and me...",
-            "nextChoices":[
+   "trigger":"talk",
+   "nextChoices":[
                {
                   "choice":"[next]",
-                  "response":"... there's some pretty fine-looking garments\ndown at the [tornado]Whirl Pool[/tornado].\n Unless you want to get \n[color=red]hot and heated[/color]?",
+   "trigger":"talk",
+   "response":"... there's some pretty fine-looking garments\ndown at the [tornado]Whirl Pool[/tornado].\n Unless you want to get \n[color=red]hot and heated[/color]?",
                   "nextChoices":[
 
                      {
                         "choice":"Thanks! I'll go check out the Whirl Pool",
                         "response":"Whirlpool it is!",
-                        "trigger_scene":"WHIRLPOOL DEST HERE"
+                        "trigger_scene":"WHIRLPOOL DEST HERE",
+                        "nextChoices":[
+                           {
+                              "choice":"thanks! (leave)",                           
+                           "trigger_scene":"WHIRLPOOL DEST HERE"
+                           }
+                        ]
                      },
                      {
                         "choice":"I want to get hot",
