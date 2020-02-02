@@ -69,7 +69,7 @@ func on_timeout():
 var __attempt = 0
 
 func on_ending_anim_done():
-	get_tree().change_scene("res://MainMenu.tscn")
+	get_tree().change_scene("res://transition.tscn")
 
 func _process(_delta: float) -> void:
 	if __loaded_level:

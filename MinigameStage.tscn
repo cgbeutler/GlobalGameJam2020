@@ -55,7 +55,6 @@ radius = 23.8672
 
 [node name="Cursor" parent="." instance=ExtResource( 3 )]
 position = Vector2( 485.506, 320.482 )
-z_index = 10
 
 [node name="SockPile" type="Node" parent="."]
 script = ExtResource( 5 )
