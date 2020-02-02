@@ -1,5 +1,5 @@
 {
-   "response":"Welcome to Spin City! We've got dry cleaning, wet cleaning, air dry, spin-cycle,  lint rolling and more!",
+   "response":"Welcome to [wave]Spin City![/wave] We've got: \ndry cleaning,\nwet cleaning,\nair dry,\nspin-cycle,\n lint rolling \nand more!",
    "nextChoices":[
    {
    "choice": "Umm... thanks. I'm actually here to find the ying to my yang.",
@@ -7,11 +7,38 @@
    "nextChoices":[
    {
       "choice": "Yes",
-      "response": "You lost them? How tragic! Have you tried retracing your steps?",
-      "nextChoices":[
-      {
-         
-      }]
+      "response": "You lost them? How tragic!\nHave you tried retracing your steps?",
+      "nextChoices":[      
+         { 
+            "choice":"I was hoping there were socks here?",
+            "response":"Oh yes! Between you and me...",
+            "nextChoices":[
+               {
+                  "choice":"[next]",
+                  "response":"... there's some pretty fine-looking garments\ndown at the [tornado]Whirl Pool[/tornado].\n Unless you want to get \n[color=red]hot and heated[/color]?",
+                  "nextChoices":[
+
+                     {
+                        "choice":"Thanks! I'll go check out the Whirl Pool",
+                        "response":"Whirlpool it is!",
+                        "trigger_scene":"WHIRLPOOL DEST HERE"
+                     },
+                     {
+                        "choice":"I want to get hot",
+                        "response":"I saw a nice Wool one at dryer 3.\nMaybe she's the right one for you!",
+                        "trigger":"pair on",
+                        "nextChoices":[
+                           {
+                              "choice":"thanks! (leave)",                           
+                           "trigger_scene":"WHIRLPOOL DEST HERE"
+                           }
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
    },{
       "choice": "I'm afraid I don't remember?",
       "response": "Sounds like you have few threads loose.",
