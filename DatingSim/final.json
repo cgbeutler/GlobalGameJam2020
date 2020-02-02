@@ -1,0 +1,8 @@
+{
+   "response":"Hello there!",
+   "trigger" :"talk",
+   "nextChoices":{
+      "choice": "I love you",
+      "trigger": "pair on"
+   }
+}
