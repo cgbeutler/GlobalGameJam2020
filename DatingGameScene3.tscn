@@ -28,3 +28,4 @@ json_file = "res://DatingSim/final.json"
 transform = Transform( 50, 0, 0, 0, 40, 0, 0, 0, 1.514, 3.29946, 0, -5.404 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
+[connection signal="trigger" from="Camera/CanvasLayer/Control" to="sockALL2" method="_on_Control_trigger"]

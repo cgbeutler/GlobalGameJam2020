@@ -8,11 +8,7 @@
    "trigger":"talk",
    "nextChoices":[
    {
-      "choice": "Yes",
-      "response": "You lost them? How tragic!\nHave you tried retracing your steps?",
-   "trigger":"talk",
-   "nextChoices":[      
-         { 
+
             "choice":"I was hoping there were socks here?",
             "response":"Oh yes! Between you and me...",
    "trigger":"talk",
@@ -57,5 +53,5 @@
          
       }
    ]}
-   ]}
+   
 ]}

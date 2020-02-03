@@ -1,10 +1,9 @@
 {
-   "choice" : "fdgdfgdfg",
    "response":"Hello there!",
    "trigger" :"talk",
    "nextChoices":[
-      {"choice": "I love you",
-         "response":"Hello",
+      {"choice": "I [color=red]love[/color] you",
+         "response":"[wave]If the sock fits...[/wave]",
       "trigger": "pair on",
       "nextChoices": []
       }

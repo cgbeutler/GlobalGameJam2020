@@ -52,5 +52,7 @@ func _on_Control_trigger(eventName):
 		play_pissed1()
 	else: if eventName == "shock":
 		play_splosion()
+	else: if eventName == "talk":
+		play_talk()
 	else: if eventName == "sexy":
 		play_turn()
