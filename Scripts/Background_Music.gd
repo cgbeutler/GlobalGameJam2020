@@ -29,3 +29,9 @@ func Start_Dating_Music():
 	dating_music.play()
 	dating_music.volume_db = -80
 	fade_in(dating_music)
+
+func Start_Main_Game_Music():
+	fade_out(dating_music)
+	minigame_music.play()
+	minigame_music.volume_db = -80
+	fade_in(minigame_music)

@@ -24,6 +24,9 @@ func _ready() -> void:
 	__timer.connect("timeout", self, "on_timeout")
 	add_child(__timer)
 	
+	var music_ctrl = get_node("/root/Background_Music_Ctrl")
+	music_ctrl.Start_Main_Game_Music()
+	
 	start_level()
 
 func start_level():
