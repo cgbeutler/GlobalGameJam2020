@@ -1,11 +1,20 @@
 extends Node
 
-export var json_file = "res://DatingSim/dating_tree.json"
-
 signal trigger(eventName)
 
+export var json_file = "res://DatingSim/dating_tree.json"
 
+onready var vbox := $MarginContainer/Control/Panel/ScrollContainer/VBoxContainer
 
+func _ready() -> void:
+	var file = File.new()
+	file.open(json_file, file.READ)
+	var content = file.get_as_text()
+	file.close()
+	
+	var parsed := JSON.parse(content)
+	if not parsed.error:  vbox.start_sim(parsed.result)
+	else:  push_error( "Error? " + (parsed.error_string))
 
 func _on_VBoxContainer_triggered(message):
 	print("triggered " + message)
@@ -13,17 +22,8 @@ func _on_VBoxContainer_triggered(message):
 		$Button.disabled = false
 	else:
 		emit_signal("trigger", message)
-	pass # Replace with function body.
-
-#func _on_Control_trigger(eventName):
-#	print("PAIRED")
-#	if (eventName == "pair on"):
-#		$Button.disabled = false
-#	pass # Replace with function body.
-
 
 # VICTORY!!!
 func _on_Button_pressed():
 	print("WINNNN!")
 	get_tree().change_scene("res://EndMinigame.tscn")
-	pass # Replace with function body.

@@ -1,57 +1,62 @@
 {
-   "response":"Welcome to [wave]Spin City![/wave] We've got: \ndry cleaning,\nwet cleaning,\nair dry,\nspin-cycle,\n lint rolling \nand more!",
-   "trigger":"talk",
-   "nextChoices":[
-   {
-   "choice": "Umm... thanks. I'm actually here to find the ying to my yang.",
-   "response": "You lost them? How tragic! Have you tried retracing your steps?",
-   "trigger":"talk",
-   "nextChoices":[
-   {
-
-            "choice":"I was hoping there were socks here?",
-            "response":"Oh yes! Between you and me...",
-   "trigger":"talk",
-   "nextChoices":[
-               {
-                  "choice":"[next]",
-   "trigger":"talk",
-   "response":"... there's some pretty fine-looking garments\ndown at the [tornado]Whirl Pool[/tornado].\n Unless you want to get \n[color=red]hot and heated[/color]?",
-                  "nextChoices":[
-
-                     {
-                        "choice":"Thanks! I'll go check out the Whirl Pool",
-                        "response":"Whirlpool it is!",
-                        "trigger_scene":"res://DatingGameScene3.tscn",
-                        "nextChoices":[
-                           {
-                              "choice":"thanks! (leave)",
-                              "trigger_scene":"res://DatingGameScene3.tscn"
-                           }
-                        ]
-                     },
-                     {
-                        "choice":"I want to get hot",
-                        "response":"I saw a nice Wool one at dryer 3.\nMaybe she's the right one for you!",
-                        "nextChoices":[
-                           {
-                              "choice":"thanks! (leave)",
-                              "trigger_scene":"res://DatingGameScene3.tscn"
-                           }
-                        ]
-                     }
-                  ]
-               }
-            ]
-         }
-      ]
-   },{
-      "choice": "I'm afraid I don't remember?",
-      "response": "Sounds like you have few threads loose.",
-      "nextChoices":[
+   "response": "Welcome to [wave]Spin City![/wave] We've got: \ndry cleaning,\nwet cleaning,\nair dry,\nspin-cycle,\n lint rolling \nand more!",
+   "responseColor" : "white",
+   "trigger": "talk",
+   "nextChoices": [
       {
-         
+         "choice": "Umm... thanks. I'm actually here to find the ying to my yang.",
+         "response": "You lost them? How tragic! Have you tried retracing your steps?",
+         "responseColor" : "white",
+         "trigger": "talk",
+         "nextChoices": [
+            {
+               "choice": "I was hoping there were socks here?",
+               "response": "Oh yes! Between you and me...",
+               "responseColor" : "white",
+               "trigger": "talk",
+               "nextChoices": [
+                  {
+                     "choice": "[next]",
+                     "trigger": "talk",
+                     "response": "... there's some pretty fine-looking garments\ndown at the [tornado]Whirl Pool[/tornado].\n Unless you want to get \n[color=red]hot and heated[/color]?",
+                     "responseColor" : "white",
+                     "nextChoices": [
+                        {
+                           "choice": "Thanks! I'll go check out the Whirl Pool",
+                           "response": "Whirlpool it is!",
+                           "responseColor" : "white",
+                           "trigger_scene": "res://DatingGameScene3.tscn",
+                           "nextChoices": [
+                              {
+                                 "choice": "thanks! (leave)",
+                                 "trigger_scene": "res://DatingGameScene3.tscn"
+                              }
+                           ]
+                        },
+                        {
+                           "choice": "I want to get hot",
+                           "response": "I saw a nice Wool one at dryer 3.\nMaybe she's the right one for you!",
+                           "responseColor" : "white",
+                           "nextChoices": [
+                              {
+                                 "choice": "thanks! (leave)",
+                                 "trigger_scene": "res://DatingGameScene3.tscn"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "choice": "I'm afraid I don't remember?",
+         "response": "Sounds like you have few threads loose.",
+         "responseColor" : "white",
+         "nextChoices": [
+            {}
+         ]
       }
-   ]}
-   
-]}
+   ]
+}

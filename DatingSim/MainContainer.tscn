@@ -82,7 +82,6 @@ text = "  PAIR!  "
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="trigger" from="." to="." method="_on_Control_trigger"]
 [connection signal="choiceMade" from="MarginContainer/Control/Panel/ScrollContainer/VBoxContainer" to="MarginContainer/Control/Panel/ScrollContainer/VBoxContainer" method="_on_VBoxContainer_choiceMade"]
 [connection signal="triggered" from="MarginContainer/Control/Panel/ScrollContainer/VBoxContainer" to="." method="_on_VBoxContainer_triggered"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

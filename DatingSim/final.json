@@ -1,11 +1,14 @@
 {
-   "response":"Hello there!",
-   "trigger" :"talk",
-   "nextChoices":[
-      {"choice": "I [color=red]love[/color] you",
-         "response":"[wave]If the sock fits...[/wave]",
-      "trigger": "pair on",
-      "nextChoices": []
+   "response": "Hello there!",
+   "responseColor" : "purple",
+   "trigger": "talk",
+   "nextChoices": [
+      {
+         "choice": "I [color=red]love[/color] you",
+         "response": "[wave]If the sock fits...[/wave]",
+         "responseColor" : "purple",
+         "trigger": "pair on",
+         "nextChoices": []
       }
    ]
 }
