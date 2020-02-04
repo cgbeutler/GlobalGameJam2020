@@ -25,7 +25,7 @@ func _process(delta):
 func __loadChoice():
 	for i in __activeChoices:  i.queue_free()
 	__activeChoices.clear()
-	for i in __lastResponses:  i.bg_color *= Color.gray
+	for i in __lastResponses:  i.modulate = Color.gray
 	__lastResponses.clear()
 	
 	if __sim_dict.has("trigger_scene"):
@@ -44,8 +44,8 @@ func __loadChoice():
 			var curLog := DatingLog.instance()
 			curLog.text = text
 			curLog.bg_color = Color.red
+			curLog.modulate = Color.gray
 			self.add_child(curLog)
-			__lastResponses.append( curLog )
 	
 	if __sim_dict.has("response"):
 		var response = __sim_dict["response"]
