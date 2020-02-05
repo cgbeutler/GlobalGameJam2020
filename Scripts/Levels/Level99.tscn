@@ -76,4 +76,4 @@ centered = false
 
 [node name="Sock" parent="." instance=ExtResource( 2 )]
 position = Vector2( 498.887, 400.485 )
-sock_id_override = 20
+match_id_override = 20

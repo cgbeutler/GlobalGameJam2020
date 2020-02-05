@@ -10,10 +10,8 @@ onready var cursor = $Cursor
 onready var levels = [
 	load("res://Scripts/Levels/EndLevel1.tscn"),
 	load("res://Scripts/Levels/EndLevel2.tscn"),
-	load("res://Scripts/Levels/EndLevel3.tscn")
-#	load("res://Scripts/Levels/EndLevel4.tscn"),
-#	load("res://Scripts/Levels/EndLevel5.tscn"),
-#	load("res://Scripts/Levels/EndLevel6.tscn")
+	load("res://Scripts/Levels/EndLevel3.tscn"),
+	load("res://Scripts/Levels/EndLevel99.tscn")
 ]
 
 var __current_level : int = 0
@@ -42,7 +40,7 @@ func start_level():
 	__timer.paused = true
 	cursor.can_grab = false
 	
-	if __current_level != 0:  anim.play("ReadyGo")
+	anim.play("ReadyGo")
 
 func on_ready_anim_done():
 	__timer.paused = false

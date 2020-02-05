@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Level",
 "language": "GDScript",
 "path": "res://Scripts/Levels/Level.gd"
+}, {
+"base": "Grabbable",
+"class": "Matchable",
+"language": "GDScript",
+"path": "res://Scripts/Matchable.gd"
 } ]
 _global_script_class_icons={
 "Grabbable": "",
-"Level": ""
+"Level": "",
+"Matchable": ""
 }
 
 [application]
