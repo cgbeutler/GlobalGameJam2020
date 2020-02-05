@@ -30,46 +30,47 @@
                                  "choice": "[rainbow][wave]Spin City (Laundromat)[/wave][/rainbow]",
                                  "response": "Spin City is great!",
                                  "responseColor" : "red",
-                                 "trigger_scene": "res://DatingGameScene2.tscn",
-                                 "nextChoices": [
-                                    {
-                                       "choice": "Choice 1 1",
-                                       "response": "base choice from json",
-                                       "nextChoices": []
-                                    }
-                                 ]
+                                 "trigger_scene": "res://DatingGameScene2.tscn"
                               },
                               {
                                  "choice": "The dog's house",
-                                 "response": "base choice from json",
-                                 "responseColor" : "red",
+                                 "response": "You find a note on the doghouse that says, 'Not implemented yet'",
+                                 "responseColor" : "gray",
                                  "nextChoices": [
                                     {
-                                       "choice": "Choice 2 1",
-                                       "response": "base choice from json",
-                                       "nextChoices": []
-                                    },
-                                    {
-                                       "choice": "Choice 2 2",
-                                       "trigger": "The fancy pants dance!",
-                                       "response": "base choice from json",
-                                       "nextChoices": []
+                                       "choice": "[next]",
+                                       "response": "I don't know what that means... Guess we have to go elsewhere.",
+                                       "responseColor" : "red",
+                                       "trigger": "sad",
+                                       "nextChoices": [
+                                          {
+                                             "choice": "[rainbow][wave]Spin City (Laundromat)[/wave][/rainbow]",
+                                             "response": "Spin City is great!",
+                                             "responseColor" : "red",
+                                             "trigger_scene": "res://DatingGameScene2.tscn"
+                                          }
+                                       ]
                                     }
                                  ]
                               },
                               {
                                  "choice": " [shake level=8] The dark side of the bed [/shake]",
-                                 "response": "base choice from json",
-                                 "responseColor" : "red",
+                                 "response": "You find a note in the dark side of the bed that reads, 'Not implemented yet'",
+                                 "responseColor" : "gray",
                                  "nextChoices": [
                                     {
-                                       "choice": "choice 3 1",
-                                       "response": "base choice from json",
-                                       "nextChoices": []
-                                    },
-                                    {
-                                       "choice": "Get the FORK OUT OF HERE",
-                                       "trigger_scene": "res://MinigameStage.tscn"
+                                       "choice": "[next]",
+                                       "response": "I don't know what that means... Guess we have to go elsewhere.",
+                                       "responseColor" : "red",
+                                       "trigger": "sad",
+                                       "nextChoices": [
+                                          {
+                                             "choice": "[rainbow][wave]Spin City (Laundromat)[/wave][/rainbow]",
+                                             "response": "Spin City is great!",
+                                             "responseColor" : "red",
+                                             "trigger_scene": "res://DatingGameScene2.tscn"
+                                          }
+                                       ]
                                     }
                                  ]
                               }

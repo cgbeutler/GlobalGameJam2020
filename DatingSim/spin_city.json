@@ -10,52 +10,63 @@
          "trigger": "talk",
          "nextChoices": [
             {
-               "choice": "I was hoping there were socks here?",
-               "response": "Oh yes! Between you and me...",
+               "choice": "Actually, I was hoping my match might be here...",
+               "response": "I see! I think I saw a fine-looking garments\ndown at the [tornado]Whirl Pool[/tornado].",
                "responseColor" : "white",
                "trigger": "talk",
                "nextChoices": [
                   {
                      "choice": "[next]",
                      "trigger": "talk",
-                     "response": "... there's some pretty fine-looking garments\ndown at the [tornado]Whirl Pool[/tornado].\n Unless you want to get \n[color=red]hot and heated[/color]?",
+                     "response": "Before you go, are you sure you don't want to get \n[color=red]hot and dry[/color]?",
                      "responseColor" : "white",
                      "nextChoices": [
                         {
-                           "choice": "Thanks! I'll go check out the Whirl Pool",
-                           "response": "Whirlpool it is!",
+                           "choice": "Thanks, but I think I'll go check out the [tornado]Whirl Pool[/tornado].",
+                           "response": "Good Luck!",
                            "responseColor" : "white",
-                           "trigger_scene": "res://DatingGameScene3.tscn",
-                           "nextChoices": [
-                              {
-                                 "choice": "thanks! (leave)",
-                                 "trigger_scene": "res://DatingGameScene3.tscn"
-                              }
-                           ]
+                           "trigger_scene": "res://DatingGameScene3.tscn"
                         },
                         {
-                           "choice": "I want to get hot",
-                           "response": "I saw a nice Wool one at dryer 3.\nMaybe she's the right one for you!",
+                           "choice": "I think I could use a quick tumble.",
+                           "response": "*Wrrrrrrrrrrr!* *Bzzzzz!* All done, that'll be one quarder.",
                            "responseColor" : "white",
+                           "trigger" : "sexy",
                            "nextChoices": [
                               {
-                                 "choice": "thanks! (leave)",
-                                 "trigger_scene": "res://DatingGameScene3.tscn"
-                              }
+                                 "choice": "What!? You were just making noises! I'm not paying you anything!",
+                                 "trigger": "sad",
+                                 "response": "Awww... fine... Worked on the Wool with the tube-top...",
+                                 "responseColor" : "white",
+                                 "nextChoices": [
+                                    {
+                                       "choice": "I think I'll go check out the [tornado]Whirl Pool[/tornado].",
+                                       "response": "Good Luck!",
+                                       "responseColor" : "white",
+                                       "trigger_scene": "res://DatingGameScene3.tscn"
+                                    }
+                                 ]
+                              },
+                              {
+                                 "choice": "Thanks! Here you go!",
+                                 "trigger": "talk",
+                                 "response": "Wait... this is just a quarter of a jar of Toe's Jam...",
+                                 "responseColor" : "white",
+                                 "nextChoices": [
+                                    {
+                                       "choice": "Yeah, sorry... that's all I got... I'll be down at the [tornado]Whirl Pool[/tornado] if you need me.",
+                                       "response": "Good Luck!",
+                                       "responseColor" : "white",
+                                       "trigger_scene": "res://DatingGameScene3.tscn"
+                                    }
+                                 ]
+                              },
                            ]
                         }
                      ]
                   }
                ]
             }
-         ]
-      },
-      {
-         "choice": "I'm afraid I don't remember?",
-         "response": "Sounds like you have few threads loose.",
-         "responseColor" : "white",
-         "nextChoices": [
-            {}
          ]
       }
    ]
