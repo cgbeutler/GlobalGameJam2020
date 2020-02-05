@@ -29,7 +29,7 @@
                         },
                         {
                            "choice": "I think I could use a quick tumble.",
-                           "response": "*Wrrrrrrrrrrr!* *Bzzzzz!* All done, that'll be one quarder.",
+                           "response": "*Wrrrrrrrrrrr!* *Bzzzzz!* All done, that'll be one quarter.",
                            "responseColor" : "white",
                            "trigger" : "sexy",
                            "nextChoices": [
