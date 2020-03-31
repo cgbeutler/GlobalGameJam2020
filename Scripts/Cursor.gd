@@ -1,15 +1,18 @@
 extends Area2D
 
-export(bool) var can_grab := true setget set_can_grab, get_can_grab
+export(bool) var can_grab := true setget set_can_grab
 func set_can_grab( value ):
 	can_grab = value
 	if not grabbed_obj:  return
-	grabbed_obj.z_index = initial_z_index
+	grabbed_obj.z_index = grabbed_obj_z_index
+	# Note: No grabbed_obj._on_release() called
 	grabbed_obj = null
-func get_can_grab():  return can_grab
 
-var grabbed_obj : Grabbable
-var grabbed_obj_offset
+var grabbing := false
+
+var grabbed_obj :Grabbable
+var grabbed_obj_offset :Vector2
+var grabbed_obj_z_index :int
 
 onready var open_hand_sprite := $Open_Hand_Sprite
 onready var open_hand_animator := $Open_Hand_Sprite/AnimationPlayer
@@ -17,7 +20,6 @@ onready var closed_hand_sprite := $Closed_Hand_Sprite
 onready var hand_close_audio = $Hand_Close_Audio
 onready var hand_open_audio = $Hand_Open_Audio
 
-var initial_z_index
 
 func _enter_tree() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -42,30 +44,34 @@ func __grab_topmost():
 	
 	if grabbed_obj:
 		grabbed_obj_offset = grabbed_obj.position - position
-		initial_z_index = grabbed_obj.z_index
+		grabbed_obj_z_index = grabbed_obj.z_index
 		grabbed_obj.z_index = 9
 		grabbed_obj._on_grab()
 
 func __release():
 	if not grabbed_obj:  return
-	grabbed_obj.z_index = initial_z_index
+	grabbed_obj.z_index = grabbed_obj_z_index
 	grabbed_obj._on_release()
 	grabbed_obj = null
-	
 
 
-func _input(event: InputEvent) -> void:
+func _input(event: InputEvent):
 	if event is InputEventMouseMotion:
 		# Move self to the mouse's position
-		position =  event.position
+		position = event.position
 		# Move sock relative to cursor
 		if grabbed_obj:  grabbed_obj.position = position + grabbed_obj_offset
 	
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
+		# Move self to the mouse's position
+		position = event.position
 		if event.pressed and can_grab:
 			hand_close_audio.play()
 			open_hand_sprite.hide()
 			closed_hand_sprite.show()
+			# Wait for physics to update
+			yield(get_tree(), "idle_frame")
+			yield(get_tree(), "idle_frame")
 			__grab_topmost()
 		else:
 			hand_open_audio.play()

@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/roughness.png-c304dda641676328c909806c519b8c48.s3tc.stex"
 path.etc2="res://.import/roughness.png-c304dda641676328c909806c519b8c48.etc2.stex"
+path.etc="res://.import/roughness.png-c304dda641676328c909806c519b8c48.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/sockModel/hat/roughness.png"
-dest_files=[ "res://.import/roughness.png-c304dda641676328c909806c519b8c48.s3tc.stex", "res://.import/roughness.png-c304dda641676328c909806c519b8c48.etc2.stex" ]
+dest_files=[ "res://.import/roughness.png-c304dda641676328c909806c519b8c48.s3tc.stex", "res://.import/roughness.png-c304dda641676328c909806c519b8c48.etc2.stex", "res://.import/roughness.png-c304dda641676328c909806c519b8c48.etc.stex" ]
 
 [params]
 

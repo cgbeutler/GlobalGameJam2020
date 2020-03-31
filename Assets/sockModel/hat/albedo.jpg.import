@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/albedo.jpg-d3cb88dd33a06bc4e7ac783640780256.s3tc.stex"
 path.etc2="res://.import/albedo.jpg-d3cb88dd33a06bc4e7ac783640780256.etc2.stex"
+path.etc="res://.import/albedo.jpg-d3cb88dd33a06bc4e7ac783640780256.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/sockModel/hat/albedo.jpg"
-dest_files=[ "res://.import/albedo.jpg-d3cb88dd33a06bc4e7ac783640780256.s3tc.stex", "res://.import/albedo.jpg-d3cb88dd33a06bc4e7ac783640780256.etc2.stex" ]
+dest_files=[ "res://.import/albedo.jpg-d3cb88dd33a06bc4e7ac783640780256.s3tc.stex", "res://.import/albedo.jpg-d3cb88dd33a06bc4e7ac783640780256.etc2.stex", "res://.import/albedo.jpg-d3cb88dd33a06bc4e7ac783640780256.etc.stex" ]
 
 [params]
 

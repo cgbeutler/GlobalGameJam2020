@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/albedoGreen.jpg-32fedbca48574ca658033c4cd9adf8d5.s3tc.stex"
 path.etc2="res://.import/albedoGreen.jpg-32fedbca48574ca658033c4cd9adf8d5.etc2.stex"
+path.etc="res://.import/albedoGreen.jpg-32fedbca48574ca658033c4cd9adf8d5.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/sockModel/button/albedoGreen.jpg"
-dest_files=[ "res://.import/albedoGreen.jpg-32fedbca48574ca658033c4cd9adf8d5.s3tc.stex", "res://.import/albedoGreen.jpg-32fedbca48574ca658033c4cd9adf8d5.etc2.stex" ]
+dest_files=[ "res://.import/albedoGreen.jpg-32fedbca48574ca658033c4cd9adf8d5.s3tc.stex", "res://.import/albedoGreen.jpg-32fedbca48574ca658033c4cd9adf8d5.etc2.stex", "res://.import/albedoGreen.jpg-32fedbca48574ca658033c4cd9adf8d5.etc.stex" ]
 
 [params]
 

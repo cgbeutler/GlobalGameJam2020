@@ -8,16 +8,14 @@ onready var animation_player = $AnimationPlayer
 func _ready():
 	var animation = animation_player.get_animation("Armature|Talk")
 	animation.set_loop(true)
-	animation_player.play("Armature|Talk")
+	animation_player.play("Armature|Talk", -1, 0.4)
 	startX = translation.x
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	time += delta
 	if time > time_to_start:
-		#rotation.y += 0.01
 		if translation.z < -15:
 			translation.z = 15
 		else:
-			translation.z += 0.03
+			translation.z += 1.8 * delta
 			translation.x = startX + sin(translation.z)

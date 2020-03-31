@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/skin3.png-2c9e40926168a7dd5d41794be28fd0a7.s3tc.stex"
 path.etc2="res://.import/skin3.png-2c9e40926168a7dd5d41794be28fd0a7.etc2.stex"
+path.etc="res://.import/skin3.png-2c9e40926168a7dd5d41794be28fd0a7.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/sockModel2/skin3.png"
-dest_files=[ "res://.import/skin3.png-2c9e40926168a7dd5d41794be28fd0a7.s3tc.stex", "res://.import/skin3.png-2c9e40926168a7dd5d41794be28fd0a7.etc2.stex" ]
+dest_files=[ "res://.import/skin3.png-2c9e40926168a7dd5d41794be28fd0a7.s3tc.stex", "res://.import/skin3.png-2c9e40926168a7dd5d41794be28fd0a7.etc2.stex", "res://.import/skin3.png-2c9e40926168a7dd5d41794be28fd0a7.etc.stex" ]
 
 [params]
 

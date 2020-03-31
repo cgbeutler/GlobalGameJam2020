@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/HCalbedo2.jpg-e14691f6d532cb9fd798c8f4a2963e70.s3tc.stex"
 path.etc2="res://.import/HCalbedo2.jpg-e14691f6d532cb9fd798c8f4a2963e70.etc2.stex"
+path.etc="res://.import/HCalbedo2.jpg-e14691f6d532cb9fd798c8f4a2963e70.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://sockModel3/hatCap/HCalbedo2.jpg"
-dest_files=[ "res://.import/HCalbedo2.jpg-e14691f6d532cb9fd798c8f4a2963e70.s3tc.stex", "res://.import/HCalbedo2.jpg-e14691f6d532cb9fd798c8f4a2963e70.etc2.stex" ]
+dest_files=[ "res://.import/HCalbedo2.jpg-e14691f6d532cb9fd798c8f4a2963e70.s3tc.stex", "res://.import/HCalbedo2.jpg-e14691f6d532cb9fd798c8f4a2963e70.etc2.stex", "res://.import/HCalbedo2.jpg-e14691f6d532cb9fd798c8f4a2963e70.etc.stex" ]
 
 [params]
 
